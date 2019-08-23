@@ -40,7 +40,7 @@ PORT(
 end MuxDec4Disp;
 
 architecture Behavioral of MuxDec4Disp is
-
+--Señales Auxiliares para realizar el recorrido 
 signal Qs: std_logic_vector(3 downto 0);
 signal Qr: std_logic_vector(1 downto 0);
 
@@ -54,21 +54,25 @@ begin
 		Qr <= CUENTA;
 	 end process;
 	 
-	
+	-- Código principal del Multiplexor 
 	MUXY: PROCESS (Qr)
 	BEGIN
+		-- Añadimos en cada "estado" que Dn por transitividad vaya a la salida L
+		-- Pasamos la entrada Dn a Qs para que ésta variable sea despues codificada a 7 segmentos.
+		 -- Ademas hacemos que dependiendo del estado en el que se encuentre se habilitará ese display 
+		-- con la forma de los habilitadores de la tarjeta (en este caso usando lógica negada) 
 		 if Qr = "00" then
 			Qs<= D0;
-			A <= "0001"; 
+			A <= "1110"; 
 		 elsif Qr = "01" then
 			Qs<= D1;
-			A <= "0010"; 
+			A <= "1101"; 
 		 elsif Qr = "10" then
 			Qs<= D2;
-			A <= "0011"; 
+			A <= "1011"; 
 		 elsif Qr = "11" then
 			Qs<= D3;
-			A <= "0100"; 
+			A <= "0111"; 
 		 end if;
 	 end process;
 	 
