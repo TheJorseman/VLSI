@@ -42,7 +42,7 @@ architecture behavioral of reldig is
  signal u : std_logic;
  signal d : std_logic;
  signal reset : std_logic;
- signal parpadeo : std_logiC_VECTOR(3 downto 0);
+ signal parpadeo : std_logic;
 begin
  divisor : process (reloj,parpadeo)
 	variable CUENTA: STD_LOGIC_VECTOR(27 downto 0) := X"0000000";
@@ -51,8 +51,10 @@ begin
 		 if CUENTA =X"48009E0" then
 			CUENTA := X"0000000";
 		 else
+				-- El valor se obtuvo de una "regla de 3" al tener el valor de reset como el dia y 
+				-- Asi dividirlo para obtener un porcentaje de ese dia.
 				if CUENTA = X"4009E0" then
-					parpadeo <=  "1111";
+					parpadeo <=  "1";
 				else
 					CUENTA := CUENTA +1;
 				end if;
@@ -62,14 +64,13 @@ begin
 	 rapido <= CUENTA(10);
  end process;
  
- 
+ -- Código no probado de parpadeo que si parpadeo esta en alto por cada flanco de reloj va a hacer que el selector
+ -- los displays de 7 segmentos 
  alarma : process (parpadeo,segundo)
  begin
-	if rising_edge(segundo) then
-		if parpadeo = "1111" then
-			parpadeo <= "0000";
-		else
-			parpadeo <= "1111";
+	if parpadeo='1' then
+		if rising_edge(segundo) then
+			AN<= "1111";
 		end if;
 	end if;
  end process;
@@ -173,13 +174,13 @@ BEGIN
  BEGIN
 	 case Qr is
 	 when "00" =>
-		AN<= "1110" and parpadeo;
+		AN<= "1110";
 	 when "01" =>
-		AN<= "1101" AND parpadeo;
+		AN<= "1101";
 	 when "10" =>
-		AN<= "1011" AND parpadeo;
+		AN<= "1011";
 	 when others =>
-		AN<= "0111" AND parpadeo;
+		AN<= "0111";
 	 end case;
 end process;
 
