@@ -44,9 +44,9 @@ architecture Behavioral of Servomotor is
 				   elsif Pfin='1' then                
 					valor := X"18";             
 				   elsif Inc='1' and valor<X"18" then                
-					   valor := valor + 1;             
-					   elsif Dec='1' and valor>X"0D" then                
-					   valor := valor - 1;             
+					valor := valor + 1;             
+				   elsif Dec='1' and valor>X"0D" then                
+					valor := valor - 1;             
 				   end if;             
 				   cuenta := 1023;             
 				   ancho <= valor;          
