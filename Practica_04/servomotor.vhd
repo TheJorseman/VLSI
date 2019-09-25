@@ -21,18 +21,18 @@ architecture Behavioral of Servomotor is
 	
 	component PWM is       
 		Port ( Reloj : in  STD_LOGIC;                  
-		D : in  STD_LOGIC_VECTOR (7 downto 0);                  
+		D : in  STD_LOGIC_VECTOR (15 downto 0);                  
 		S : out  STD_LOGIC);    
 	end component;   
 	
 	signal reloj : STD_LOGIC;    
-	signal ancho : STD_LOGIC_VECTOR (7 downto 0) := X"0F"; 
+	signal ancho : STD_LOGIC_VECTOR (15 downto 0) := X"0CCD"; 
 	begin    
 	U1: divisor port map (clk, reloj);    
 	U2: PWM port map (reloj, ancho, control); 
 	 
 	   process (reloj, Pini, Pfin, Inc, Dec)       
-		   variable valor : STD_LOGIC_VECTOR (7 downto 0) := X"0F";       
+		   variable valor : STD_LOGIC_VECTOR (15 downto 0) := X"0CCD";      
 		   variable cuenta : integer range 0 to 1023 := 0;    
 	   begin       
 		   if reloj='1' and reloj'event then          
@@ -40,12 +40,12 @@ architecture Behavioral of Servomotor is
 				   cuenta := cuenta -1;          
 			   else             
 				   if Pini='1' then                
-					valor := X"0D";             
+					valor := X"0CCD";          
 				   elsif Pfin='1' then                
-					valor := X"18";             
-				   elsif Inc='1' and valor<X"18" then                
+					valor := X"199A";             
+				   elsif Inc='0' and valor<X"199A" then           
 					valor := valor + 1;             
-				   elsif Dec='1' and valor>X"0D" then                
+				   elsif Dec='0' and valor>X"0CCD" then                 
 					valor := valor - 1;             
 				   end if;             
 				   cuenta := 1023;             
