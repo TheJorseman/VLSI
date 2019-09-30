@@ -5,7 +5,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
  
 entity PWM is    
 Port ( Reloj : in  STD_LOGIC;           
-D : in  STD_LOGIC_VECTOR (7 downto 0);           
+D : in  STD_LOGIC_VECTOR (15 downto 0);           
 S : out  STD_LOGIC); 
 end PWM; 
  

@@ -48,7 +48,7 @@ begin
 	 
     process (relojCiclo)
         variable Cuenta : integer range 0 to 255 := 0;
-		  variable contador : integer range 0 to 16:= 0;
+		  variable contador : integer range 0 to 15:= 0;
     begin
         if relojCiclo='1' and relojCiclo'event then
 			if contador <8 then
@@ -79,7 +79,7 @@ begin
 				 a6  <= X"A8";
 				 a7  <= X"C8";
 				 a8  <= X"E8";	
-			else
+			elsif contador>8 then  
 			   a8 <= a1;
 				a7 <= a8;
 				a6 <= a7;
