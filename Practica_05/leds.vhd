@@ -33,12 +33,7 @@ architecture Behavioral of Leds is
     signal a5 : STD_LOGIC_VECTOR (7 downto 0) := X"88";
     signal a6 : STD_LOGIC_VECTOR (7 downto 0) := X"A8";
     signal a7 : STD_LOGIC_VECTOR (7 downto 0) := X"C8";
-    signal a8 : STD_LOGIC_VECTOR (7 downto 0) := X"E8";
-	 signal buff1 : STD_LOGIC_VECTOR (7 downto 0);
-	 signal buff1 : STD_LOGIC_VECTOR (7 downto 0);
-	 signal buff1 : STD_LOGIC_VECTOR (7 downto 0);
-	 signal buff1 : STD_LOGIC_VECTOR (7 downto 0);
-	 
+    signal a8 : STD_LOGIC_VECTOR (7 downto 0) := X"E8"; 
 begin
     R1: divisor generic map (10) port map (clk, relojPWM);
     R2: divisor generic map (23) port map (clk, relojCiclo);
