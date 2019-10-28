@@ -7,19 +7,28 @@ entity Controller is
         SW : IN STD_LOGIC_VECTOR(3 downto 0);
         TX_WIRE : OUT STD_LOGIC;
 		  baud : in STD_LOGIC_VECTOR(2 downto 0);
+		  bandera: out STD_LOGIC;
 		  INICIO : in STD_LOGIC);
 end entity;
 
 architecture behavioral OF Controller IS
+
+	 component TransmissionS is
+    port( Clk : IN STD_LOGIC;
+        dato : IN STD_LOGIC_VECTOR(7 downto 0);
+        TXD : OUT STD_LOGIC;
+		  bandera : out STD_LOGIC;
+		  baud : in STD_LOGIC_VECTOR(2 downto 0);
+		  INICIO : in STD_LOGIC);
+	 end component;
+
+
     signal conta : INTEGER := 0;
     signal valor : INTEGER := 70000;
     --signal INICIO: STD_LOGIC;
     signal dato : STD_LOGIC_VECTOR(7 DOWNTO 0);
     signal PRE : INTEGER RANGE 0 TO 5208 := 0;
---    signal INDICE: INTEGER RANGE 0 TO 9 := 0;
---    signal BUFF : STD_LOGIC_VECTOR(9 DOWNTO 0);
---    signal Flag : STD_LOGIC := '0';
---    signal PRE_val: INTEGER range 0 to 41600;
+    signal PRE_val: INTEGER range 0 to 41600;
     signal i : INTEGER range 0 to 4;
     signal pulso : STD_LOGIC:='0';
     signal contador: integer range 0 to 49999999 := 0;
@@ -27,6 +36,9 @@ architecture behavioral OF Controller IS
     signal hex_val: STD_LOGIC_VECTOR(7 DOWNTO 0):= (others => '0');
 
 begin
+
+	 transmisor: TransmissionS port map(clk,dato,TX_WIRE,bandera,baud,INICIO); 
+
     TX_divisor : process(Clk)
     begin
         if rising_edge(Clk) then
@@ -63,30 +75,25 @@ begin
         end if;
     end process TX_prepara;
 
-
--- manipulación de periféricos y selector de velocidad dentro de la
---  arquitectura del sistema Transmisor Serial
-    --LED <= pulso;
     dato_bin<=SW;
-    --baud<="011";
     
     with(dato_bin) select
-        hex_val <= X"30" when "0000",
-                    X"31" when "0001",
-                    X"32" when "0010",
-                    X"33" when "0011",
-                    X"34" when "0100",
-                    X"35" when "0101",
-                    X"36" when "0110",
-                    X"37" when "0111",
-                    X"38" when "1000",
-                    X"39" when "1001",
-                    X"41" when "1010",
-                    X"42" when "1011",
-                    X"43" when "1100",
-                    X"44" when "1101",
-                    X"45" when "1110",
-                    X"46" when "1111",
+        hex_val <= X"41" when "0000",
+                    X"42" when "0001",
+                    X"43" when "0010",
+                    X"44" when "0011",
+                    X"45" when "0100",
+                    X"46" when "0101",
+                    X"47" when "0110",
+                    X"48" when "0111",
+                    X"49" when "1000",
+                    X"4A" when "1001",
+                    X"4B" when "1010",
+                    X"4C" when "1011",
+                    X"4D" when "1100",
+                    X"4E" when "1101",
+                    X"4F" when "1110",
+                    X"50" when "1111",
                     X"23" when others;
 
     with (baud) select

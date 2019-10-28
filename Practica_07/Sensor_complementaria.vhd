@@ -21,11 +21,12 @@ architecture Behavioral of supersonicos is
     signal centimetros: unsigned(15 downto 0) := (others => '0');
     signal centimetros_unid: unsigned(3 downto 0) := (others => '0');
     signal centimetros_dece: unsigned(3 downto 0) := (others => '0');
-	     
-	 signal centimetros_cent: unsigned(3 downto 0) := (others => '0');
+	--se añade la señal para contar las centenas    
+	signal centimetros_cent: unsigned(3 downto 0) := (others => '0');
 	 
     signal sal_unid: unsigned(3 downto 0) := (others => '0');
     signal sal_dece: unsigned(3 downto 0) := (others => '0');
+	--Se añade la variable para medir las centenas
 	 signal sal_cent: unsigned(3 downto 0) := (others => '0');
 	 
     signal digito: unsigned(3 downto 0) := (others => '0');
@@ -36,6 +37,7 @@ architecture Behavioral of supersonicos is
 
 	 signal anodos: STD_LOGIC_VECTOR (3 downto 0);
 	 signal segmentos: STD_LOGIC_VECTOR (7 downto 0);
+	 --Declaramos el multiplexor para utilizar displays de 7 segmentos no multiplexados
 	 component MUX7SEG is 
 		 Port (clk: in STD_LOGIC;
 			  selector : in STD_LOGIC_VECTOR (3 downto 0);

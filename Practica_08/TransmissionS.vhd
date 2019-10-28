@@ -5,7 +5,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity TransmissionS is
     port( Clk : IN STD_LOGIC;
         dato : IN STD_LOGIC_VECTOR(7 downto 0);
-        TX_WIRE : OUT STD_LOGIC;
+        TXD : OUT STD_LOGIC;
 		  bandera : out STD_LOGIC;
 		  baud : in STD_LOGIC_VECTOR(2 downto 0);
 		  INICIO : in STD_LOGIC);
@@ -27,6 +27,9 @@ architecture behavioral OF TransmissionS IS
     signal contador: integer range 0 to 49999999 := 0;
     --signal dato_bin: STD_LOGIC_VECTOR(3 DOWNTO 0);
     --signal hex_val: STD_LOGIC_VECTOR(7 DOWNTO 0):= (others => '0');
+	 signal ini : STD_LOGIC := '0';
+	 signal btn_before : STD_LOGIC := '0';
+	 --signal btn_ini : STD_LOGIC_VECTOR(2 downto 0);
 
 begin
     TX_divisor : process(Clk)
@@ -40,12 +43,25 @@ begin
             end if;
         end if;
     end process TX_divisor;
-
-
-    TX_envia : process(Clk,INICIO,dato)
+	
+	
+	 btn_ini : process(clk)
+		begin
+			if rising_edge(Clk) then
+				if INICIO = '0' and btn_before = '0' then
+					ini <= '1';
+				elsif INICIO = '0' and  btn_before = '1' then 
+					ini <= '0';
+				end if;
+				btn_before <= not INICIO;
+				
+			end if;
+	 end process;
+	 
+    TX_envia : process(Clk,ini,dato)
     begin
         if(Clk'EVENT and Clk = '1') then
-            if(Flag = '0' and INICIO = '1') then
+            if(Flag = '0' and ini = '1') then
                 Flag<= '1';
                 BUFF(0) <= '0';
                 BUFF(9) <= '1';
@@ -58,7 +74,7 @@ begin
                     PRE <= 0;
                 end if;
                 if(PRE = PRE_val/2) then
-                    TX_WIRE <= BUFF(INDICE);
+                    TXD <= BUFF(INDICE);
                     if(INDICE < 9) then
                         INDICE <= INDICE + 1;
                     else
@@ -69,31 +85,6 @@ begin
             end if;
         end if;
     end process TX_envia;
-
--- manipulación de periféricos y selector de velocidad dentro de la
---  arquitectura del sistema Transmisor Serial
---    LED <= pulso;
---    dato_bin<=SW;
---    --baud<="011";
---    
---    with(dato_bin) select
---        hex_val <= X"30" when "0000",
---                    X"31" when "0001",
---                    X"32" when "0010",
---                    X"33" when "0011",
---                    X"34" when "0100",
---                    X"35" when "0101",
---                    X"36" when "0110",
---                    X"37" when "0111",
---                    X"38" when "1000",
---                    X"39" when "1001",
---                    X"41" when "1010",
---                    X"42" when "1011",
---                    X"43" when "1100",
---                    X"44" when "1101",
---                    X"45" when "1110",
---                    X"46" when "1111",
---                    X"23" when others;
 
     with (baud) select
         PRE_val <= 41600 when "000", -- 1200 bauds

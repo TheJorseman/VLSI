@@ -49,7 +49,7 @@ begin
                 if (conta=valor) then
                     conta <= 0;
                     INICIO <= '1';
-                    Dato <= asc_dato(i);
+                    Dato <= asc_dato(i)
                     if (i = 1) then
                         i <= 0;
                     else
