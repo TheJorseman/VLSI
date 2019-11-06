@@ -6,7 +6,6 @@ entity RX is
 	baud: in STD_LOGIC_VECTOR(2 downto 0);
 	bandera: INOUT STD_LOGIC := '0';
 	LEDS : OUT STD_LOGIC_VECTOR(7 downto 0);
-	test1 : out std_logic:='0';
  	RX_WIRE : IN STD_LOGIC);
 end entity;
 
@@ -52,15 +51,7 @@ begin
 			end if;
 		end if;
 	end process RX_dato;
-	
-	test: process(bandera)
-		begin
-			if (rising_edge(bandera)) then
-				test1 <= '1';
-			end if;
-		end process;
-	
-	
+
 	--baud<="011";
 	with (baud) select
 	PRE_val <= 41600 when "000", -- 1200 bauds

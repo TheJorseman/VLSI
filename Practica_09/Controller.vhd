@@ -46,12 +46,12 @@ begin
 			if(rising_edge(bandera)) then
 				case data is
 					when X"64" => 
-						direccion <= '1';
-						mode <= "11";
+						direccion <= '0';
+						mode <= "10";
 						enable <= '1';
 					when X"69" =>
-						direccion <= '0';
-						mode <= "11";
+						direccion <= '1';
+						mode <= "10";
 						enable <= '1';
 					when X"61" =>
 						enable <= '0';
