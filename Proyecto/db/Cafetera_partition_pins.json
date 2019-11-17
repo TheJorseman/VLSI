@@ -4,79 +4,35 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "Sal0[0]",
+					"name" : "D_sal[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal0[1]",
+					"name" : "D_sal[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal0[2]",
+					"name" : "D_sal[2]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal0[3]",
+					"name" : "D_sal[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal1[0]",
+					"name" : "D_sal[4]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal1[1]",
+					"name" : "D_sal[5]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal1[2]",
+					"name" : "D_sal[6]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal1[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Sal2[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Sal2[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Sal2[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Sal2[3]",
-					"strict" : false
-				},
-				{
-					"name" : "save_o",
-					"strict" : false
-				},
-				{
-					"name" : "is_digit",
-					"strict" : false
-				},
-				{
-					"name" : "is_oper",
-					"strict" : false
-				},
-				{
-					"name" : "digits[1]",
-					"strict" : false
-				},
-				{
-					"name" : "digits[2]",
-					"strict" : false
-				},
-				{
-					"name" : "digits[3]",
-					"strict" : false
-				},
-				{
-					"name" : "digits[0]",
+					"name" : "ready",
 					"strict" : false
 				},
 				{
@@ -84,7 +40,51 @@
 					"strict" : false
 				},
 				{
-					"name" : "reset",
+					"name" : "Dat0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Dat1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Dat0[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Dat1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Dat0[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Dat2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Dat1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Dat0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Dat2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Dat1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Dat2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Dat2[3]",
 					"strict" : false
 				}
 			]
