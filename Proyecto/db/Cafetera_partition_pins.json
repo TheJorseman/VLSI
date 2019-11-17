@@ -1,0 +1,93 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Sal0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Sal0[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Sal0[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Sal0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Sal1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Sal1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Sal1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Sal1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Sal2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Sal2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Sal2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Sal2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "save_o",
+					"strict" : false
+				},
+				{
+					"name" : "is_digit",
+					"strict" : false
+				},
+				{
+					"name" : "is_oper",
+					"strict" : false
+				},
+				{
+					"name" : "digits[1]",
+					"strict" : false
+				},
+				{
+					"name" : "digits[2]",
+					"strict" : false
+				},
+				{
+					"name" : "digits[3]",
+					"strict" : false
+				},
+				{
+					"name" : "digits[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

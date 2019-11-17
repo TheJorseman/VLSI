@@ -1,0 +1,7 @@
+
+State Machine - |Digits|state
+Name state.D3 state.D2 state.D1 state.Idle 
+state.Idle 0 0 0 0 
+state.D1 0 0 1 1 
+state.D2 0 1 0 1 
+state.D3 1 0 0 1 
