@@ -26,6 +26,7 @@ entity Digits is
 		Sal0	 : out	std_logic_vector(3 downto 0);  -- Salida de los bits menos significativos (unidades)
 		Sal1	 : out	std_logic_vector(3 downto 0);   -- Salida de bits (decenas)
 		Sal2	 : out	std_logic_vector(3 downto 0);   -- Salida de bits (centenas)
+		exception : out std_logic := '0'; 						 -- Bandera que se activa cuando la cantidad excede los 100
 		save_o : out	std_logic   						 -- Bandera para indicar que se debe guardar
 	);
 
@@ -38,7 +39,9 @@ architecture rtl of Digits is
 
 	-- Register to hold the current state
 	signal state : state_type;
-
+	
+	signal is_zero1 : std_logic := '0';
+	signal is_zero2 : std_logic := '0';
 begin
 
 	process (clk, reset)
@@ -71,8 +74,16 @@ begin
 						state <= D1;
 					end if;
 				when D2=>
-					if is_digit = '1' then
-						state <= D3;
+					if is_digit = '1' then								-- Se verifica que la cantidad no exceda los 100 permitidos
+						if digits = "0001" then
+							if is_zero1 = '1' and is_zero1 = '1' then
+								state <= D3;
+							else
+								state <= D2;
+							end if;
+						else
+							state <= D2;					
+						end if;
 					elsif is_oper = '1' then
 						if digits = "1110" then  -- Si el digito es * regresa a un estado anterior.
 							state <= D1;
@@ -104,6 +115,9 @@ begin
 			case state is
 				when Idle=>
 					if is_digit = '1' then
+						if digits = "0000" then
+							is_zero1 <='1';
+						end if;
 						Sal0   <= digits;
 						Sal1   <= "0000";
 						Sal2   <= "0000";
@@ -116,6 +130,9 @@ begin
 					end if;
 				when D1=>
 					if is_digit = '1' then
+						if digits = "0000" then
+							is_zero2 <='1';
+						end if;
 						Sal1   <= digits;
 						Sal2   <= "0000";
 						save_o <= '0';
@@ -138,8 +155,18 @@ begin
 					end if;
 				when D2=>
 					if is_digit = '1' then
-						Sal2   <= digits;
-						save_o <= '0';
+						if digits = "0001" then
+							if is_zero1 = '1' and is_zero1 = '1' then
+								Sal2   <= digits;
+								save_o <= '0';
+							else
+								exception <= '1';
+								save_o <= '0';
+							end if;
+						else
+								exception <= '1';
+								save_o <= '0';						
+						end if;
 					elsif is_oper = '1' then
 						if digits = "1110" then  -- Si el digito es * regresa a un estado anterior.
 							Sal1   <= "0000";

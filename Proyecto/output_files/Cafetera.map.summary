@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sun Nov 17 17:25:25 2019
+Analysis & Synthesis Status : Successful - Sun Nov 17 21:11:58 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : Cafetera
-Top-level Entity Name : bcd_to_bin
+Top-level Entity Name : Digits
 Family : MAX 10
-Total logic elements : 31
-    Total combinational functions : 31
-    Dedicated logic registers : 0
-Total registers : 0
-Total pins : 21
+Total logic elements : 45
+    Total combinational functions : 45
+    Dedicated logic registers : 4
+Total registers : 4
+Total pins : 22
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
