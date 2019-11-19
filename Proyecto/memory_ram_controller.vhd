@@ -26,11 +26,11 @@ entity memory_ram_controller is
 		--mode		 : out std_logic;											 -- Modo con el que se trabajara con la RAM
 		--is_ram  	 : out std_logic;							  				 -- Indica si la salida fue hacia la ram
 		
-		data_out_rom  : out std_logic_vector(6 downto 0);  			 -- Salida entera sin signo de los valores
-		data_from_rom : out std_logic_vector (6 downto 0);
-		addres_rom	 : out std_logic_vector(types_width downto 0); 	 -- Salida que corresponde a la direccion de memoria.
-		mode_rom		 : out std_logic;											 -- Modo con el que se trabajara con la RAM
-		is_rom  	 : out std_logic							  				 	 -- Indica si la salida fue hacia la rom
+		--data_out_rom  : out std_logic_vector(6 downto 0);  			 -- Salida entera sin signo de los valores
+		--data_from_rom : out std_logic_vector (6 downto 0);
+		--addres_rom	 : out std_logic_vector(types_width downto 0); 	 -- Salida que corresponde a la direccion de memoria.
+		--mode_rom		 : out std_logic;											 -- Modo con el que se trabajara con la RAM
+		--is_rom  	 : out std_logic							  				 	 -- Indica si la salida fue hacia la rom
 	);
 end memory_ram_controller;
 
@@ -59,11 +59,11 @@ signal addres	 		: natural range 0 to 2**types_width - 1; 	 	 -- Salida que corr
 signal mode		 		: std_logic;											 -- Modo con el que se trabajara con la RAM
 signal is_ram  	 	: std_logic;							  				 -- Indica si la salida fue hacia la ram
 
-signal data_out  		: std_logic_vector(6 downto 0);  				 	-- Salida entera sin signo de los valores
-signal data_from_ram : std_logic_vector (6 downto 0);
-signal addres	 		: natural range 0 to 2**types_width - 1; 	 	 -- Salida que corresponde a la direccion de memoria.
-signal mode		 		: std_logic;											 -- Modo con el que se trabajara con la RAM
-signal is_ram  	 	: std_logic;							  				 -- Indica si la salida fue hacia la ram
+signal data_out_rom  		: std_logic_vector(6 downto 0);  				 	-- Salida entera sin signo de los valores
+signal data_from_rom : std_logic_vector (6 downto 0);
+signal addres_rom	 		: natural range 0 to 2**types_width - 1; 	 	 -- Salida que corresponde a la direccion de memoria.
+signal mode_rom		 		: std_logic;											 -- Modo con el que se trabajara con la RAM
+signal is_rom  	 	: std_logic;							  				 -- Indica si la salida fue hacia la ram
 
 begin
 
