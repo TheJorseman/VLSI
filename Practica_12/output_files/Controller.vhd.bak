@@ -1,0 +1,52 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity Controller is
+	Port ( clk  : in    STD_LOGIC;
+				 scl  : inout STD_LOGIC;
+				 sda  : inout STD_LOGIC;
+				 leds : out   STD_LOGIC_VECTOR(9 downto 0);
+				 error: out   STD_LOGIC;
+				 reset: in    STD_LOGIC;
+				 --reg_dataX0 : in std_logic_vector(7 downto 0) := X"34";
+				 modo: in STD_LOGIC;
+				 mclk : out std_logic );
+	end Controller;
+
+architecture Behavioral of Controller is
+
+	signal reg_dataX0 : std_logic_vector(7 downto 0) := X"34";
+	signal salida: std_logic_vector(9 downto 0);
+	constant nivel: integer := 10;
+	constant minimo: integer := -2048;
+	constant maximo: integer := 2048;
+	signal particion: integer := 410;
+	
+	
+
+	component Acelerometro IS
+		PORT(clk  : in    STD_LOGIC;
+          scl  : inout STD_LOGIC;
+          sda  : inout STD_LOGIC;
+          leds : out   STD_LOGIC_VECTOR(9 downto 0);
+          error: out   STD_LOGIC;
+          reset: in    STD_LOGIC;
+			 reg_dataX0 : in std_logic_vector(7 downto 0) := X"34";
+          mclk : out std_logic );
+	end component Acelerometro;
+	
+	begin
+	With modo select reg_dataX0 <=
+		X"34" when '0',
+		X"32" when '1',
+		X"36" when others;
+		
+	:process(salida)
+	begin
+		if(salida > minimo)
+	end process;
+		
+	A1: Acelerometro port map (clk, scl, sda, salida, error, reset,reg_dataX0, mclk)
+end Behavioral;
