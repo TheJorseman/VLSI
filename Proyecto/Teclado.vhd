@@ -1,13 +1,13 @@
 --------   -----------------
---fila 0   | 0 | 1 | 2 | 3 |
+--fila[3]   | 0 | 1 | 2 | 3 |
 --------   -----------------
---fila 1   | 4 | 5 | 6 | 7 |
+--fila[2]   | 4 | 5 | 6 | 7 |
 --------   -----------------
---fila 2   | 8 | 9 | A | B |
+--fila[1]   | 8 | 9 | A | B |
 --------   -----------------
---fila 3   | C | D | E | F |
+--fila[0]   | C | D | E | F |
 --------   -----------------
---Columnas 1000 0100 0010 0001
+--Columnas 0010 0100 1000 0001
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -26,11 +26,7 @@ entity Teclado is
 end Teclado;
 
 architecture behavioral of Teclado is
-	constant cero: std_logic_vector(3 downto 0):="1000"; 
-	constant uno: std_logic_vector(3 downto 0):="0100";
-	constant dos: std_logic_vector(3 downto 0):="0010";
-	constant tres: std_logic_vector(3 downto 0):="0001";
-	signal conectornum:std_logic_vector(3 downto 0); 
+	signal conectornum: integer := 0; 
 	signal reloj: std_logic;
 
 begin 
@@ -42,79 +38,83 @@ begin
         end if;
     end process relojp; -- 25mhz
 	
-	with fila select conectornum <= --decodificador para los números
-	 "1000" when "0000",
-	 "0100" when "0001",
-	 "0010" when "0010",
-	 "0001" when "0011",
-	 "0000" when others;
+	p_cont: process(reloj) is
+		begin
+        if rising_edge(reloj) then
+            conectornum <= conectornum + 1;
+				if conectornum = 3 then
+					conectornum <= 0;
+				end if;
+        end if;
+	end process;
 	
-	p1: process (reloj) is
+	p1: process (reloj,fila) is
 		begin
 		if rising_edge(reloj) then
+			dato <= '0';
 			case conectornum is
-				when cero =>
-					columna <= "1000";
+				when 0 =>
+					columna <= "0010";
 					if fila = "1000" then
 						dato <= '1';
-						data <= "0100"; -- 4
+						data <= "0001"; -- 1
 					elsif fila = "0100" then
 						dato <= '1';
-						data <= "1000";  -- 8 
+						data <= "0100";  -- 4 
 					elsif fila = "0010" then
-						dato <= '1';
-						data <= "1100";  -- C
-					elsif fila = "0001" then
-						dato <= '1';
-						data <= "0000";  -- 0
-					end if;
-				when uno =>
-					columna <= "0100";
-					if fila = "1000" then
-						dato <= '1';
-						data <= "0011";  -- 3
-					elsif fila = "0100" then
 						dato <= '1';
 						data <= "0111";  -- 7
-					elsif fila = "0010" then
-						dato <= '1';
-						data <= "1011";  -- 11
 					elsif fila = "0001" then
 						dato <= '1';
-						data <= "1111";  -- 15
+						data <= "1110";  -- E(*)
 					end if;
-				when dos =>
-					columna <= "0010";
+				when 1 =>
+					columna <= "0100";
 					if fila = "1000" then
 						dato <= '1';
 						data <= "0010";  -- 2
 					elsif fila = "0100" then
 						dato <= '1';
-						data <= "0110";  -- 6
+						data <= "0101";  -- 5
 					elsif fila = "0010" then
 						dato <= '1';
-						data <= "1010";  -- 10
+						data <= "1000";  -- 8
 					elsif fila = "0001" then
 						dato <= '1';
-						data <= "1110";  -- E
+						data <= "0000";  -- 0
 					end if;
-				when tres =>
-					columna <= "0001";
+				when 2 =>
+					columna <= "1000";
 					if fila = "1000" then
 						dato <= '1';
-						data <= "0001";  -- 1
+						data <= "0011";  -- 3
 					elsif fila = "0100" then
 						dato <= '1';
-						data <= "0101";  -- 5
+						data <= "0110";  -- 6
 					elsif fila = "0010" then
 						dato <= '1';
 						data <= "1001";  -- 9
 					elsif fila = "0001" then
 						dato <= '1';
+						data <= "1111";  -- F(#)
+					end if;
+				when 3 =>
+					columna <= "0001";
+					if fila = "1000" then
+						dato <= '1';
+						data <= "1010";  -- A
+					elsif fila = "0100" then
+						dato <= '1';
+						data <= "1011";  -- B
+					elsif fila = "0010" then
+						dato <= '1';
+						data <= "1100";  -- C
+					elsif fila = "0001" then
+						dato <= '1';
 						data <= "1101";  --D
 					end if;
 				when others =>
-					columna <= "1000";
+					columna <= "1100";
 			end case;
 		end if;
 		end process p1;
