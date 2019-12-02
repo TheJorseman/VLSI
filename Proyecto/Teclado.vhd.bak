@@ -54,7 +54,7 @@ begin
 		begin
 		if rising_edge(reloj) then
 			data <= "0000";
-			dato <= '0'; -- OJO
+			--dato <= '0'; -- OJO
 			is_digit <= '0';
 			is_oper <= '0';
 			case conectornum is
