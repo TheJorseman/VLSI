@@ -4,83 +4,151 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "Sal0[0]",
+					"name" : "columna[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal0[1]",
+					"name" : "columna[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal0[2]",
+					"name" : "columna[2]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal0[3]",
+					"name" : "columna[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal1[0]",
+					"name" : "siete_seg_u[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal1[1]",
+					"name" : "siete_seg_u[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal1[2]",
+					"name" : "siete_seg_u[2]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal1[3]",
+					"name" : "siete_seg_u[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal2[0]",
+					"name" : "siete_seg_u[4]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal2[1]",
+					"name" : "siete_seg_u[5]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal2[2]",
+					"name" : "siete_seg_u[6]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal2[3]",
+					"name" : "siete_seg_d[0]",
 					"strict" : false
 				},
 				{
-					"name" : "save_o",
+					"name" : "siete_seg_d[1]",
 					"strict" : false
 				},
 				{
-					"name" : "is_digit",
+					"name" : "siete_seg_d[2]",
 					"strict" : false
 				},
 				{
-					"name" : "is_oper",
+					"name" : "siete_seg_d[3]",
 					"strict" : false
 				},
 				{
-					"name" : "digits[1]",
+					"name" : "siete_seg_d[4]",
 					"strict" : false
 				},
 				{
-					"name" : "digits[2]",
+					"name" : "siete_seg_d[5]",
 					"strict" : false
 				},
 				{
-					"name" : "digits[3]",
+					"name" : "siete_seg_d[6]",
 					"strict" : false
 				},
 				{
-					"name" : "digits[0]",
+					"name" : "siete_seg_c[0]",
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "siete_seg_c[1]",
+					"strict" : false
+				},
+				{
+					"name" : "siete_seg_c[2]",
+					"strict" : false
+				},
+				{
+					"name" : "siete_seg_c[3]",
+					"strict" : false
+				},
+				{
+					"name" : "siete_seg_c[4]",
+					"strict" : false
+				},
+				{
+					"name" : "siete_seg_c[5]",
+					"strict" : false
+				},
+				{
+					"name" : "siete_seg_c[6]",
+					"strict" : false
+				},
+				{
+					"name" : "data[0]",
+					"strict" : false
+				},
+				{
+					"name" : "data[1]",
+					"strict" : false
+				},
+				{
+					"name" : "data[2]",
+					"strict" : false
+				},
+				{
+					"name" : "data[3]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_d[0]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_d[1]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_d[3]",
+					"strict" : false
+				},
+				{
+					"name" : "fila[0]",
+					"strict" : false
+				},
+				{
+					"name" : "fila[2]",
+					"strict" : false
+				},
+				{
+					"name" : "fila[3]",
+					"strict" : false
+				},
+				{
+					"name" : "fila[1]",
+					"strict" : false
+				},
+				{
+					"name" : "clk50MHz",
 					"strict" : false
 				},
 				{

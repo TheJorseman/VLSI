@@ -21,6 +21,8 @@ entity Teclado is
 		columna : out std_logic_vector (3 downto 0);
 		is_digit  : out std_logic;
 		is_oper   : out std_logic;
+		is_tipo   : out std_logic;
+		fila_debug: out std_logic_vector(3 downto 0);
 		is_ready  : out std_logic
 		); 
 end Teclado;
@@ -53,118 +55,106 @@ begin
 	p1: process (reloj,fila) is
 		begin
 		if rising_edge(reloj) then
-			data <= "0000";
-			dato <= '0'; -- OJO
-			is_digit <= '0';
-			is_oper <= '0';
+			--data <= "0000";
+			
 			case conectornum is
 				when 0 =>
 					columna <= "0010";
 					if fila = "1000" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "0001"; -- 1
-							is_digit <= '1';
-						end if;
+						is_digit <= '1';
+						data <= "0001"; -- 1
 					elsif fila = "0100" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "0100";  -- 4 
-							is_digit <= '1';
-						end if;
+						is_digit <= '1';
+						data <= "0100";  -- 4 
 					elsif fila = "0010" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "0111";  -- 7
-							is_digit <= '1';
-						end if;
+						is_digit <= '1';
+						data <= "0111";  -- 7
 					elsif fila = "0001" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "1110";  -- E(*)
-							is_oper <= '1';
-						end if;
+						is_oper <= '1';
+						data <= "1110";  -- E(*)
+					elsif fila = "0000" then
+						dato <= '0'; -- OJO
+						is_digit <= '0';
+						is_oper <= '0';
+						data <= "1100";
 					end if;
 				when 1 =>
 					columna <= "0100";
 					if fila = "1000" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "0010";  -- 2
-							is_digit <= '1';
-						end if;
+						is_digit <= '1';
+						data <= "0010";  -- 2
 					elsif fila = "0100" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "0101";  -- 5
-							is_digit <= '1';
-						end if;
+						is_digit <= '1';
+						data <= "0101";  -- 5
 					elsif fila = "0010" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "1000";  -- 8
-							is_digit <= '1';
-						end if;
+						is_digit <= '1';
+						data <= "1000";  -- 8
 					elsif fila = "0001" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "0000";  -- 0
-							is_digit <= '1';
-						end if;
+						is_digit <= '1';
+						data <= "0000";  -- 0
+					elsif fila = "0000" then
+						dato <= '0'; -- OJO
+						is_digit <= '0';
+						is_oper <= '0';
+						data <= "1100";
 					end if;
 				when 2 =>
 					columna <= "1000";
 					if fila = "1000" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "0011";  -- 3
-							is_digit <= '1';
-						end if;
+						data <= "0011";  -- 3
+						is_digit <= '1';
 					elsif fila = "0100" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "0110";  -- 6
-							is_digit <= '1';
-						end if;
+						data <= "0110";  -- 6
+						is_digit <= '1';
 					elsif fila = "0010" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "1001";  -- 9
-							is_digit <= '1';
-						end if;
+						data <= "1001";  -- 9
+						is_digit <= '1';
 					elsif fila = "0001" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "1111";  -- F(#)
-							is_oper <= '1';
-						end if;
+						data <= "1111";  -- F(#)
+						is_oper <= '1';
+					elsif fila = "0000" then
+						dato <= '0'; -- OJO
+						is_digit <= '0';
+						is_oper <= '0';
+						data <= "1100";
 					end if;
 -- Qué onda con los botones A, B, C, D
 				when 3 =>
 					columna <= "0001";
 					if fila = "1000" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "1010";  -- A
-						end if;
+						data <= "1010";  -- A
+						is_tipo <= '1';
 					elsif fila = "0100" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "1011";  -- B
-						end if;
+						data <= "1011";  -- B
+						is_tipo <= '1';
 					elsif fila = "0010" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "1100";  -- C
-						end if;
+						data <= "1100";  -- C
 					elsif fila = "0001" then
 						dato <= '1';
-						if ver_dato <= '0' then
-							data <= "1101";  --D
-						end if;
+						data <= "1101";  --D
+					elsif fila = "0000" then
+						dato <= '0'; -- OJO
+						is_digit <= '0';
+						is_oper <= '0';
+						data <= "1100";
 					end if;
 				when others =>
-					columna <= "1100";
+					columna <= "0000";
 			end case;
 		end if;
 		end process p1;

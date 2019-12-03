@@ -1,5 +1,5 @@
 
-State Machine - |Digits|state
+State Machine - |Cafetera|Digits:D|state
 Name state.D3 state.D2 state.D1 state.Idle 
 state.Idle 0 0 0 0 
 state.D1 0 0 1 1 

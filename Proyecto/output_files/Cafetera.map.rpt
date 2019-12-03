@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Cafetera
-Mon Dec 02 17:42:16 2019
+Mon Dec 02 19:23:48 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -10,7 +10,17 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Cafetera|Digits:D|state
+  9. User-Specified and Inferred Latches
+ 10. General Register Statistics
+ 11. Port Connectivity Checks: "Digits:D"
+ 12. Port Connectivity Checks: "Teclado:T"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -36,22 +46,22 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Mon Dec 02 17:42:16 2019           ;
+; Analysis & Synthesis Status        ; Successful - Mon Dec 02 19:23:48 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; Cafetera                                    ;
-; Top-level Entity Name              ; Teclado                                     ;
+; Top-level Entity Name              ; Cafetera                                    ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
-; UFM blocks                         ; N/A until Partition Merge                   ;
-; ADC blocks                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 168                                         ;
+;     Total combinational functions  ; 168                                         ;
+;     Dedicated logic registers      ; 48                                          ;
+; Total registers                    ; 48                                          ;
+; Total pins                         ; 51                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -61,7 +71,7 @@ refer to the applicable agreement for further details.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; Teclado            ; Cafetera           ;
+; Top-level entity name                                            ; Cafetera           ; Cafetera           ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Type of Retiming Performed During Resynthesis                    ; Full               ;                    ;
 ; Resynthesis Optimization Effort                                  ; Normal             ;                    ;
@@ -154,11 +164,174 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-8         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                   ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                            ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+; Teclado.vhd                      ; yes             ; User VHDL File  ; D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Teclado.vhd  ;         ;
+; Digits.vhd                       ; yes             ; User VHDL File  ; D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd   ;         ;
+; Cafetera.vhd                     ; yes             ; User VHDL File  ; D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                   ;
++---------------------------------------------+-----------------+
+; Resource                                    ; Usage           ;
++---------------------------------------------+-----------------+
+; Estimated Total logic elements              ; 168             ;
+;                                             ;                 ;
+; Total combinational functions               ; 168             ;
+; Logic element usage by number of LUT inputs ;                 ;
+;     -- 4 input functions                    ; 85              ;
+;     -- 3 input functions                    ; 43              ;
+;     -- <=2 input functions                  ; 40              ;
+;                                             ;                 ;
+; Logic elements by mode                      ;                 ;
+;     -- normal mode                          ; 137             ;
+;     -- arithmetic mode                      ; 31              ;
+;                                             ;                 ;
+; Total registers                             ; 48              ;
+;     -- Dedicated logic registers            ; 48              ;
+;     -- I/O registers                        ; 0               ;
+;                                             ;                 ;
+; I/O pins                                    ; 51              ;
+;                                             ;                 ;
+; Embedded Multiplier 9-bit elements          ; 0               ;
+;                                             ;                 ;
+; Maximum fan-out node                        ; Teclado:T|reloj ;
+; Maximum fan-out                             ; 44              ;
+; Total fan-out                               ; 730             ;
+; Average fan-out                             ; 2.30            ;
++---------------------------------------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; |Cafetera                  ; 168 (21)            ; 48 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 51   ; 0            ; 0          ; |Cafetera           ; Cafetera    ; work         ;
+;    |Digits:D|              ; 48 (48)             ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|Digits:D  ; Digits      ; work         ;
+;    |Teclado:T|             ; 99 (99)             ; 44 (44)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|Teclado:T ; Teclado     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------+
+; State Machine - |Cafetera|Digits:D|state                 ;
++------------+----------+----------+----------+------------+
+; Name       ; state.D3 ; state.D2 ; state.D1 ; state.Idle ;
++------------+----------+----------+----------+------------+
+; state.Idle ; 0        ; 0        ; 0        ; 0          ;
+; state.D1   ; 0        ; 0        ; 1        ; 1          ;
+; state.D2   ; 0        ; 1        ; 0        ; 1          ;
+; state.D3   ; 1        ; 0        ; 0        ; 1          ;
++------------+----------+----------+----------+------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; Digits:D|Sal0[0]                                    ; Digits:D|Selector19 ; yes                    ;
+; Digits:D|Sal0[1]                                    ; Digits:D|Selector19 ; yes                    ;
+; Digits:D|Sal0[2]                                    ; Digits:D|Selector19 ; yes                    ;
+; Digits:D|Sal0[3]                                    ; Digits:D|Selector19 ; yes                    ;
+; Digits:D|Sal1[0]                                    ; Digits:D|Selector14 ; yes                    ;
+; Digits:D|Sal1[1]                                    ; Digits:D|Selector14 ; yes                    ;
+; Digits:D|Sal1[2]                                    ; Digits:D|Selector14 ; yes                    ;
+; Digits:D|Sal1[3]                                    ; Digits:D|Selector14 ; yes                    ;
+; Digits:D|Sal2[0]                                    ; Digits:D|Selector9  ; yes                    ;
+; Digits:D|Sal2[1]                                    ; Digits:D|Selector9  ; yes                    ;
+; Digits:D|Sal2[2]                                    ; Digits:D|Selector9  ; yes                    ;
+; Digits:D|Sal2[3]                                    ; Digits:D|Selector9  ; yes                    ;
+; Digits:D|debug[0]                                   ; Digits:D|Selector21 ; yes                    ;
+; Digits:D|debug[1]                                   ; Digits:D|Selector21 ; yes                    ;
+; Digits:D|debug[3]                                   ; Digits:D|Selector21 ; yes                    ;
+; Number of user-specified and inferred latches = 15  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 48    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 4     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Digits:D"                                                                                ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; exception ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; save_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Teclado:T"                                                                                                   ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                  ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; is_ready ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; is_tipo  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 51                          ;
+; cycloneiii_ff         ; 48                          ;
+;     CLR               ; 4                           ;
+;     plain             ; 44                          ;
+; cycloneiii_lcell_comb ; 172                         ;
+;     arith             ; 31                          ;
+;         2 data inputs ; 31                          ;
+;     normal            ; 141                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 43                          ;
+;         4 data inputs ; 85                          ;
+;                       ;                             ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 4.08                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -167,37 +340,137 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Dec 02 17:42:03 2019
+    Info: Processing started: Mon Dec 02 19:23:33 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Cafetera -c Cafetera
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file mux7seg.vhd
+    Info (12022): Found design unit 1: MUX7SEG-Behavioral File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/MUX7SEG.vhd Line: 15
+    Info (12023): Found entity 1: MUX7SEG File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/MUX7SEG.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file teclado.vhd
-    Info (12022): Found design unit 1: Teclado-behavioral File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Teclado.vhd Line: 28
+    Info (12022): Found design unit 1: Teclado-behavioral File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Teclado.vhd Line: 29
     Info (12023): Found entity 1: Teclado File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Teclado.vhd Line: 15
 Info (12021): Found 2 design units, including 1 entities, in source file digits.vhd
-    Info (12022): Found design unit 1: Digits-rtl File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 35
+    Info (12022): Found design unit 1: Digits-rtl File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 36
     Info (12023): Found entity 1: Digits File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 12
 Info (12021): Found 2 design units, including 1 entities, in source file cafetera.vhd
-    Info (12022): Found design unit 1: Cafetera-behavioral File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 23
+    Info (12022): Found design unit 1: Cafetera-behavioral File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 26
     Info (12023): Found entity 1: Cafetera File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file bcd_to_bin.vhd
     Info (12022): Found design unit 1: bcd_to_bin-Behavioral File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 21
     Info (12023): Found entity 1: bcd_to_bin File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 6
-Error (10500): VHDL syntax error at memory_ram_controller.vhd(34) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/memory_ram_controller.vhd Line: 34
-Error (10500): VHDL syntax error at memory_ram_controller.vhd(45) near text "port";  expecting "end", or "begin", or a declaration statement File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/memory_ram_controller.vhd Line: 45
-Error (10396): VHDL syntax error at memory_ram_controller.vhd(85): name used in construct must match previously specified name "memory_ram_controller" File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/memory_ram_controller.vhd Line: 85
-Error (10523): Ignored construct memory_ram_controller at memory_ram_controller.vhd(6) due to previous errors File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/memory_ram_controller.vhd Line: 6
-Info (12021): Found 0 design units, including 0 entities, in source file memory_ram_controller.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file memory_ram_controller.vhd
+    Info (12022): Found design unit 1: memory_ram_controller-Behavioral File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/memory_ram_controller.vhd Line: 37
+    Info (12023): Found entity 1: memory_ram_controller File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/memory_ram_controller.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file single_port_ram.vhd
     Info (12022): Found design unit 1: single_port_ram-rtl File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/single_port_ram.vhd Line: 26
     Info (12023): Found entity 1: single_port_ram File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/single_port_ram.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file bcd_to_bin_test.vhd
     Info (12022): Found design unit 1: bcd_to_bin_test-Behavioral File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/bcd_to_bin_test.vhd Line: 18
     Info (12023): Found entity 1: bcd_to_bin_test File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/bcd_to_bin_test.vhd Line: 6
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 4 errors, 1 warning
-    Error: Peak virtual memory: 4797 megabytes
-    Error: Processing ended: Mon Dec 02 17:42:16 2019
-    Error: Elapsed time: 00:00:13
-    Error: Total CPU time (on all processors): 00:00:32
+Warning (12162): EDA synthesis tool is specified as "Custom", but Library Mapping File is not specified
+Warning (12163): EDA synthesis tool is specified as "Custom", but VCC is not specified
+Warning (12164): EDA synthesis tool is specified as "Custom", but GND is not specified
+Info (12127): Elaborating entity "Cafetera" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at Cafetera.vhd(17): used implicit default value for signal "siete_seg_t" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 17
+Warning (10541): VHDL Signal Declaration warning at Cafetera.vhd(21): used implicit default value for signal "bomba_1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 21
+Warning (10541): VHDL Signal Declaration warning at Cafetera.vhd(22): used implicit default value for signal "bomba_2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 22
+Warning (10036): Verilog HDL or VHDL warning at Cafetera.vhd(31): object "is_ready" assigned a value but never read File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 31
+Warning (10036): Verilog HDL or VHDL warning at Cafetera.vhd(47): object "exception" assigned a value but never read File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 47
+Warning (10036): Verilog HDL or VHDL warning at Cafetera.vhd(48): object "digits_output" assigned a value but never read File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 48
+Info (12128): Elaborating entity "Teclado" for hierarchy "Teclado:T" File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 75
+Warning (10541): VHDL Signal Declaration warning at Teclado.vhd(25): used implicit default value for signal "is_ready" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Teclado.vhd Line: 25
+Warning (10036): Verilog HDL or VHDL warning at Teclado.vhd(32): object "ver_dato" assigned a value but never read File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Teclado.vhd Line: 32
+Info (12128): Elaborating entity "Digits" for hierarchy "Digits:D" File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 76
+Warning (10036): Verilog HDL or VHDL warning at Digits.vhd(45): object "is_zero2" assigned a value but never read File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 45
+Warning (10492): VHDL Process Statement warning at Digits.vhd(120): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 120
+Warning (10492): VHDL Process Statement warning at Digits.vhd(123): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 123
+Warning (10492): VHDL Process Statement warning at Digits.vhd(136): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 136
+Warning (10492): VHDL Process Statement warning at Digits.vhd(139): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 139
+Warning (10492): VHDL Process Statement warning at Digits.vhd(143): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 143
+Warning (10492): VHDL Process Statement warning at Digits.vhd(162): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 162
+Warning (10492): VHDL Process Statement warning at Digits.vhd(163): signal "is_zero1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 163
+Warning (10492): VHDL Process Statement warning at Digits.vhd(164): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 164
+Warning (10492): VHDL Process Statement warning at Digits.vhd(175): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 175
+Warning (10492): VHDL Process Statement warning at Digits.vhd(192): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 192
+Warning (10631): VHDL Process Statement warning at Digits.vhd(114): inferring latch(es) for signal or variable "debug", which holds its previous value in one or more paths through the process File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Warning (10631): VHDL Process Statement warning at Digits.vhd(114): inferring latch(es) for signal or variable "is_zero1", which holds its previous value in one or more paths through the process File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Warning (10631): VHDL Process Statement warning at Digits.vhd(114): inferring latch(es) for signal or variable "Sal0", which holds its previous value in one or more paths through the process File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Warning (10631): VHDL Process Statement warning at Digits.vhd(114): inferring latch(es) for signal or variable "Sal1", which holds its previous value in one or more paths through the process File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Warning (10631): VHDL Process Statement warning at Digits.vhd(114): inferring latch(es) for signal or variable "Sal2", which holds its previous value in one or more paths through the process File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Warning (10631): VHDL Process Statement warning at Digits.vhd(114): inferring latch(es) for signal or variable "exception", which holds its previous value in one or more paths through the process File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "exception" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "Sal2[0]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "Sal2[1]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "Sal2[2]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "Sal2[3]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "Sal1[0]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "Sal1[1]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "Sal1[2]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "Sal1[3]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "Sal0[0]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "Sal0[1]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "Sal0[2]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "Sal0[3]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "is_zero1" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "debug[0]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "debug[1]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "debug[2]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Info (10041): Inferred latch for "debug[3]" at Digits.vhd(114) File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+Warning (12162): EDA synthesis tool is specified as "Custom", but Library Mapping File is not specified
+Warning (12163): EDA synthesis tool is specified as "Custom", but VCC is not specified
+Warning (12164): EDA synthesis tool is specified as "Custom", but GND is not specified
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch Digits:D|Sal0[0] has unsafe behavior File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Digits:D|state.Idle File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 42
+Warning (13012): Latch Digits:D|Sal0[1] has unsafe behavior File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Digits:D|state.Idle File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 42
+Warning (13012): Latch Digits:D|Sal0[2] has unsafe behavior File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Digits:D|state.Idle File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 42
+Warning (13012): Latch Digits:D|Sal0[3] has unsafe behavior File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Digits:D|state.Idle File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 42
+Warning (13012): Latch Digits:D|Sal1[0] has unsafe behavior File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Teclado:T|data[0] File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Teclado.vhd Line: 56
+Warning (13012): Latch Digits:D|Sal1[1] has unsafe behavior File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Teclado:T|data[1] File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Teclado.vhd Line: 56
+Warning (13012): Latch Digits:D|Sal1[2] has unsafe behavior File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Teclado:T|data[2] File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Teclado.vhd Line: 56
+Warning (13012): Latch Digits:D|Sal1[3] has unsafe behavior File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Teclado:T|data[3] File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Teclado.vhd Line: 56
+Warning (13012): Latch Digits:D|Sal2[0] has unsafe behavior File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Digits:D|state.D2 File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 42
+Warning (13012): Latch Digits:D|Sal2[1] has unsafe behavior File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Digits:D|state.D2 File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 42
+Warning (13012): Latch Digits:D|Sal2[2] has unsafe behavior File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Digits:D|state.D2 File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 42
+Warning (13012): Latch Digits:D|Sal2[3] has unsafe behavior File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 114
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Digits:D|state.D2 File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Digits.vhd Line: 42
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "siete_seg_t[0]" is stuck at GND File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 17
+    Warning (13410): Pin "siete_seg_t[1]" is stuck at GND File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 17
+    Warning (13410): Pin "siete_seg_t[2]" is stuck at GND File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 17
+    Warning (13410): Pin "siete_seg_t[3]" is stuck at GND File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 17
+    Warning (13410): Pin "siete_seg_t[4]" is stuck at GND File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 17
+    Warning (13410): Pin "siete_seg_t[5]" is stuck at GND File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 17
+    Warning (13410): Pin "siete_seg_t[6]" is stuck at GND File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 17
+    Warning (13410): Pin "debug_d[2]" is stuck at GND File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 20
+    Warning (13410): Pin "bomba_1" is stuck at GND File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 21
+    Warning (13410): Pin "bomba_2" is stuck at GND File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 22
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "start" File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 11
+    Warning (15610): No output dependent on input pin "f1" File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 12
+    Warning (15610): No output dependent on input pin "f2" File: D:/Enrique/Documentos/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 13
+Info (21057): Implemented 223 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 42 output pins
+    Info (21061): Implemented 172 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 72 warnings
+    Info: Peak virtual memory: 4847 megabytes
+    Info: Processing ended: Mon Dec 02 19:23:48 2019
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:33
 
 

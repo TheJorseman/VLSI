@@ -27,6 +27,7 @@ entity Digits is
 		Sal1	 : out	std_logic_vector(3 downto 0);   -- Salida de bits (decenas)
 		Sal2	 : out	std_logic_vector(3 downto 0);   -- Salida de bits (centenas)
 		exception : out std_logic := '0'; 						 -- Bandera que se activa cuando la cantidad excede los 100
+		debug 	 : out std_logic_vector(3 downto 0);
 		save_o : out	std_logic   						 -- Bandera para indicar que se debe guardar
 	);
 
@@ -115,6 +116,7 @@ begin
 			case state is
 				when Idle=>
 					if is_digit = '1' then
+						debug <= "0001";
 						if digits = "0000" then
 							is_zero1 <='1';
 						end if;
@@ -129,6 +131,7 @@ begin
 						save_o <= '0';
 					end if;
 				when D1=>
+					debug <= "0010";
 					if is_digit = '1' then
 						if digits = "0000" then
 							is_zero2 <='1';
@@ -154,6 +157,7 @@ begin
 						save_o <= '0';
 					end if;
 				when D2=>
+					debug <= "0011";
 					if is_digit = '1' then
 						if digits = "0001" then
 							if is_zero1 = '1' and is_zero1 = '1' then
@@ -183,6 +187,7 @@ begin
 						save_o <= '0';
 					end if;
 				when D3=>
+					debug <= "1000";
 					if is_oper = '1' then
 						if digits = "1110" then  -- Si el digito es * regresa a un estado anterior.
 							Sal2   <= "0000";
