@@ -2,59 +2,59 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'Teclado:T|reloj'
-Slack : -7.152
-TNS   : -150.444
-
-Type  : Slow 1200mV 85C Model Setup 'Digits:D|state.D2'
-Slack : -3.195
-TNS   : -34.003
-
-Type  : Slow 1200mV 85C Model Setup 'Digits:D|state.D1'
-Slack : -3.103
-TNS   : -12.016
-
-Type  : Slow 1200mV 85C Model Setup 'Digits:D|state.Idle'
-Slack : -3.010
-TNS   : -17.841
+Type  : Slow 1200mV 85C Model Setup 'Teclado:T|Divisor:Div|cuenta[21]'
+Slack : -6.190
+TNS   : -131.659
 
 Type  : Slow 1200mV 85C Model Setup 'Teclado:T|dato'
-Slack : -2.854
-TNS   : -10.547
+Slack : -3.963
+TNS   : -12.122
+
+Type  : Slow 1200mV 85C Model Setup 'Digits:D|state.D2'
+Slack : -3.564
+TNS   : -33.940
+
+Type  : Slow 1200mV 85C Model Setup 'Digits:D|state.D1'
+Slack : -2.567
+TNS   : -13.862
+
+Type  : Slow 1200mV 85C Model Setup 'Digits:D|state.Idle'
+Slack : -2.464
+TNS   : -24.734
 
 Type  : Slow 1200mV 85C Model Setup 'clk50MHz'
-Slack : -0.792
-TNS   : -0.792
+Slack : -1.974
+TNS   : -26.934
 
-Type  : Slow 1200mV 85C Model Hold 'Digits:D|state.Idle'
-Slack : -0.140
-TNS   : -0.146
-
-Type  : Slow 1200mV 85C Model Hold 'Digits:D|state.D2'
-Slack : 0.244
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'Teclado:T|dato'
-Slack : 0.336
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'Teclado:T|reloj'
-Slack : 0.378
+Type  : Slow 1200mV 85C Model Hold 'Teclado:T|Divisor:Div|cuenta[21]'
+Slack : 0.347
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk50MHz'
-Slack : 0.742
+Slack : 0.363
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Teclado:T|dato'
+Slack : 0.378
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'Digits:D|state.D1'
-Slack : 1.555
+Slack : 0.455
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Digits:D|state.Idle'
+Slack : 1.001
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Digits:D|state.D2'
+Slack : 1.499
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk50MHz'
 Slack : -3.000
-TNS   : -4.403
+TNS   : -33.866
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Teclado:T|reloj'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Teclado:T|Divisor:Div|cuenta[21]'
 Slack : -1.403
 TNS   : -60.329
 
@@ -63,70 +63,70 @@ Slack : -1.403
 TNS   : -5.612
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Digits:D|state.D2'
-Slack : 0.359
+Slack : 0.361
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Digits:D|state.D1'
-Slack : 0.362
+Slack : 0.364
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Digits:D|state.Idle'
-Slack : 0.425
+Slack : 0.406
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Setup 'Teclado:T|reloj'
-Slack : -6.452
-TNS   : -133.180
-
-Type  : Slow 1200mV 0C Model Setup 'Digits:D|state.D2'
-Slack : -3.049
-TNS   : -32.541
-
-Type  : Slow 1200mV 0C Model Setup 'Digits:D|state.D1'
-Slack : -3.017
-TNS   : -11.725
-
-Type  : Slow 1200mV 0C Model Setup 'Digits:D|state.Idle'
-Slack : -2.857
-TNS   : -17.045
+Type  : Slow 1200mV 0C Model Setup 'Teclado:T|Divisor:Div|cuenta[21]'
+Slack : -5.594
+TNS   : -116.348
 
 Type  : Slow 1200mV 0C Model Setup 'Teclado:T|dato'
-Slack : -2.599
-TNS   : -9.408
+Slack : -3.687
+TNS   : -11.134
+
+Type  : Slow 1200mV 0C Model Setup 'Digits:D|state.D2'
+Slack : -3.268
+TNS   : -31.642
+
+Type  : Slow 1200mV 0C Model Setup 'Digits:D|state.D1'
+Slack : -2.528
+TNS   : -13.308
+
+Type  : Slow 1200mV 0C Model Setup 'Digits:D|state.Idle'
+Slack : -2.370
+TNS   : -24.135
 
 Type  : Slow 1200mV 0C Model Setup 'clk50MHz'
-Slack : -0.539
-TNS   : -0.539
+Slack : -1.674
+TNS   : -22.280
 
-Type  : Slow 1200mV 0C Model Hold 'Digits:D|state.Idle'
-Slack : -0.151
-TNS   : -0.151
-
-Type  : Slow 1200mV 0C Model Hold 'Teclado:T|dato'
-Slack : 0.318
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'Teclado:T|reloj'
-Slack : 0.339
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'Digits:D|state.D2'
-Slack : 0.410
+Type  : Slow 1200mV 0C Model Hold 'Teclado:T|Divisor:Div|cuenta[21]'
+Slack : 0.312
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk50MHz'
-Slack : 0.560
+Slack : 0.328
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Teclado:T|dato'
+Slack : 0.339
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'Digits:D|state.D1'
-Slack : 1.462
+Slack : 0.478
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Digits:D|state.Idle'
+Slack : 0.903
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Digits:D|state.D2'
+Slack : 1.450
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk50MHz'
 Slack : -3.000
-TNS   : -4.403
+TNS   : -33.866
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Teclado:T|reloj'
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Teclado:T|Divisor:Div|cuenta[21]'
 Slack : -1.403
 TNS   : -60.329
 
@@ -134,71 +134,71 @@ Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Teclado:T|dato'
 Slack : -1.403
 TNS   : -5.612
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Digits:D|state.D2'
-Slack : 0.329
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Digits:D|state.D1'
+Slack : 0.296
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Digits:D|state.Idle'
-Slack : 0.376
+Slack : 0.322
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Digits:D|state.D1'
-Slack : 0.408
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Digits:D|state.D2'
+Slack : 0.346
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Setup 'Teclado:T|reloj'
-Slack : -2.644
-TNS   : -39.979
-
-Type  : Fast 1200mV 0C Model Setup 'Digits:D|state.D2'
-Slack : -1.219
-TNS   : -11.620
-
-Type  : Fast 1200mV 0C Model Setup 'Digits:D|state.D1'
-Slack : -1.166
-TNS   : -4.507
-
-Type  : Fast 1200mV 0C Model Setup 'Digits:D|state.Idle'
-Slack : -1.058
-TNS   : -5.443
+Type  : Fast 1200mV 0C Model Setup 'Teclado:T|Divisor:Div|cuenta[21]'
+Slack : -2.195
+TNS   : -31.173
 
 Type  : Fast 1200mV 0C Model Setup 'Teclado:T|dato'
-Slack : -0.811
-TNS   : -2.923
+Slack : -1.431
+TNS   : -3.915
+
+Type  : Fast 1200mV 0C Model Setup 'Digits:D|state.D2'
+Slack : -1.405
+TNS   : -11.211
+
+Type  : Fast 1200mV 0C Model Setup 'Digits:D|state.D1'
+Slack : -0.783
+TNS   : -3.563
 
 Type  : Fast 1200mV 0C Model Setup 'clk50MHz'
-Slack : -0.242
-TNS   : -0.242
+Slack : -0.727
+TNS   : -1.073
 
-Type  : Fast 1200mV 0C Model Hold 'Digits:D|state.Idle'
-Slack : -0.189
-TNS   : -0.260
+Type  : Fast 1200mV 0C Model Setup 'Digits:D|state.Idle'
+Slack : -0.526
+TNS   : -4.735
 
-Type  : Fast 1200mV 0C Model Hold 'Digits:D|state.D2'
-Slack : -0.133
-TNS   : -0.345
-
-Type  : Fast 1200mV 0C Model Hold 'Teclado:T|dato'
-Slack : -0.024
-TNS   : -0.042
-
-Type  : Fast 1200mV 0C Model Hold 'Teclado:T|reloj'
-Slack : 0.166
+Type  : Fast 1200mV 0C Model Hold 'Teclado:T|Divisor:Div|cuenta[21]'
+Slack : 0.152
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk50MHz'
-Slack : 0.447
+Slack : 0.156
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Teclado:T|dato'
+Slack : 0.166
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Digits:D|state.D2'
+Slack : 0.343
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Digits:D|state.Idle'
+Slack : 0.448
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'Digits:D|state.D1'
-Slack : 0.698
+Slack : 0.476
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk50MHz'
 Slack : -3.000
-TNS   : -4.213
+TNS   : -25.776
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Teclado:T|reloj'
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Teclado:T|Divisor:Div|cuenta[21]'
 Slack : -1.000
 TNS   : -43.000
 
@@ -206,16 +206,16 @@ Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Teclado:T|dato'
 Slack : -1.000
 TNS   : -4.000
 
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Digits:D|state.Idle'
+Slack : 0.276
+TNS   : 0.000
+
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Digits:D|state.D2'
-Slack : 0.309
+Slack : 0.286
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Digits:D|state.D1'
-Slack : 0.310
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Digits:D|state.Idle'
-Slack : 0.332
+Slack : 0.301
 TNS   : 0.000
 
 ------------------------------------------------------------

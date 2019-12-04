@@ -43,6 +43,10 @@ architecture rtl of Digits is
 	
 	signal is_zero1 : std_logic := '0';
 	signal is_zero2 : std_logic := '0';
+	
+	signal unidades : std_logic_vector(3 downto 0); 
+	signal decenas : std_logic_vector(3 downto 0);
+	signal centenas : std_logic_vector(3 downto 0);
 begin
 
 	process (clk, reset)
@@ -121,6 +125,7 @@ begin
 							is_zero1 <='1';
 						end if;
 						Sal0   <= digits;
+						unidades <= digits;
 						Sal1   <= "0000";
 						Sal2   <= "0000";
 						save_o <= '0';
@@ -136,7 +141,9 @@ begin
 						if digits = "0000" then
 							is_zero2 <='1';
 						end if;
-						Sal1   <= digits;
+						Sal0   <= digits; 
+						Sal1   <= unidades;
+						decenas <= unidades;
 						Sal2   <= "0000";
 						save_o <= '0';
 					elsif is_oper = '1' then
@@ -161,7 +168,9 @@ begin
 					if is_digit = '1' then
 						if digits = "0001" then
 							if is_zero1 = '1' and is_zero1 = '1' then
-								Sal2   <= digits;
+								Sal2   <= decenas;
+								Sal1	 <= unidades;
+								Sal0   <= digits;
 								save_o <= '0';
 							else
 								exception <= '1';

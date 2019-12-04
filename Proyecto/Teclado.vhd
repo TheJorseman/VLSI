@@ -31,15 +31,15 @@ architecture behavioral of Teclado is
 	signal conectornum: integer := 0; 
 	signal reloj: std_logic;
 	signal ver_dato: std_logic; -- esta señal debería tener la misma informacion que "dato"
+	signal pass : std_logic;
+	component Divisor is    
+	Port ( clk     : in std_logic;           
+			div_clk : out std_logic); 
+	end component; 
 
 begin 
 	
-	relojp: process (clk50MHz) is
-    begin
-        if rising_edge(clk50MHz) then
-            reloj <= not reloj;
-        end if;
-    end process relojp; -- 25mhz
+	Div : Divisor port map (clk50MHz,reloj);
 	
 	p_cont: process(reloj) is
 		begin
@@ -130,7 +130,6 @@ begin
 						is_oper <= '0';
 						data <= "1100";
 					end if;
--- Qué onda con los botones A, B, C, D
 				when 3 =>
 					columna <= "0001";
 					if fila = "1000" then
@@ -154,7 +153,10 @@ begin
 						data <= "1100";
 					end if;
 				when others =>
-					columna <= "0000";
+					pass <= '1';
+					--columna <= "0000";
+					
+					
 			end case;
 		end if;
 		end process p1;

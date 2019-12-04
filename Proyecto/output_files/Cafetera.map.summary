@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Mon Dec 02 19:23:48 2019
+Analysis & Synthesis Status : Successful - Tue Dec 03 18:40:13 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : Cafetera
 Top-level Entity Name : Cafetera
 Family : MAX 10
-Total logic elements : 168
-    Total combinational functions : 168
-    Dedicated logic registers : 48
-Total registers : 48
+Total logic elements : 206
+    Total combinational functions : 206
+    Dedicated logic registers : 69
+Total registers : 69
 Total pins : 51
 Total virtual pins : 0
 Total memory bits : 0

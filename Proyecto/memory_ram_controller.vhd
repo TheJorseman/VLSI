@@ -17,10 +17,10 @@ entity memory_ram_controller is
 
 		data  : in std_logic_vector(6 downto 0);  					-- Entrada de bits a guardar en la memoria
 		tipo  : in natural range 0 to 2**types_width - 1;			-- Tipo de bebida (1 o 0) esto servira para la direccion donde se guardara (addres)
-		fav	: in natural range 0 to 2**fav_width - 1				-- Numero de favoritos 
+		fav	: in natural range 0 to 2**fav_width - 1;				-- Numero de favoritos 
 
 		-- Salidas ram
-		--data_out  : out std_logic_vector(6 downto 0);  				 -- Salida entera sin signo de los valores
+		datos  : out std_logic_vector(6 downto 0)  				 -- Salida entera sin signo de los valores
 		--data_from_ram : out std_logic_vector (6 downto 0);
 		--addres	 : out std_logic_vector(types_width downto 0); 	 -- Salida que corresponde a la direccion de memoria.
 		--mode		 : out std_logic;											 -- Modo con el que se trabajara con la RAM
