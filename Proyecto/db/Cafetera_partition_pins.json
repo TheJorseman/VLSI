@@ -4,87 +4,171 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "Sal0[0]",
+					"name" : "disp_unidades[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal0[1]",
+					"name" : "disp_unidades[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal0[2]",
+					"name" : "disp_unidades[2]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal0[3]",
+					"name" : "disp_unidades[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal1[0]",
+					"name" : "disp_unidades[4]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal1[1]",
+					"name" : "disp_unidades[5]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal1[2]",
+					"name" : "disp_unidades[6]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal1[3]",
+					"name" : "disp_decenas[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal2[0]",
+					"name" : "disp_decenas[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal2[1]",
+					"name" : "disp_decenas[2]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal2[2]",
+					"name" : "disp_decenas[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Sal2[3]",
+					"name" : "disp_decenas[4]",
 					"strict" : false
 				},
 				{
-					"name" : "save_o",
+					"name" : "disp_decenas[5]",
 					"strict" : false
 				},
 				{
-					"name" : "is_digit",
+					"name" : "disp_decenas[6]",
 					"strict" : false
 				},
 				{
-					"name" : "is_oper",
+					"name" : "disp_centenas[0]",
 					"strict" : false
 				},
 				{
-					"name" : "digits[1]",
+					"name" : "disp_centenas[1]",
 					"strict" : false
 				},
 				{
-					"name" : "digits[2]",
+					"name" : "disp_centenas[2]",
 					"strict" : false
 				},
 				{
-					"name" : "digits[3]",
+					"name" : "disp_centenas[3]",
 					"strict" : false
 				},
 				{
-					"name" : "digits[0]",
+					"name" : "disp_centenas[4]",
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "disp_centenas[5]",
 					"strict" : false
 				},
 				{
-					"name" : "reset",
+					"name" : "disp_centenas[6]",
+					"strict" : false
+				},
+				{
+					"name" : "disp_tipo[3]",
+					"strict" : false
+				},
+				{
+					"name" : "disp_tipo[6]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[0]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[1]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[2]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[3]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_bin[0]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_bin[1]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_bin[2]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_bin[3]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_bin[4]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_bin[5]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_bin[6]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_state[0]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_state[1]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_state[2]",
+					"strict" : false
+				},
+				{
+					"name" : "bomba1",
+					"strict" : false
+				},
+				{
+					"name" : "bomba2",
+					"strict" : false
+				},
+				{
+					"name" : "start",
+					"strict" : false
+				},
+				{
+					"name" : "clk50MHz",
+					"strict" : false
+				},
+				{
+					"name" : "RX_WIRE",
 					"strict" : false
 				}
 			]

@@ -66,6 +66,10 @@
 				{
 					"name" : "reset",
 					"strict" : false
+				},
+				{
+					"name" : "modo",
+					"strict" : false
 				}
 			]
 		}

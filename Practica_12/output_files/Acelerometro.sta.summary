@@ -3,34 +3,34 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Setup 'clk'
-Slack : -4.604
-TNS   : -182.250
+Slack : -15.765
+TNS   : -632.688
 
-Type  : Setup 'i2c_master:U1|busy'
-Slack : -1.095
-TNS   : -6.838
+Type  : Setup 'Acelerometro:A1|i2c_master:U1|busy'
+Slack : -0.961
+TNS   : -5.787
 
-Type  : Hold 'i2c_master:U1|busy'
-Slack : -0.866
-TNS   : -4.212
+Type  : Hold 'Acelerometro:A1|i2c_master:U1|busy'
+Slack : -0.851
+TNS   : -5.047
 
 Type  : Hold 'clk'
-Slack : 0.329
+Slack : 0.342
 TNS   : 0.000
 
-Type  : Recovery 'i2c_master:U1|busy'
-Slack : -2.570
-TNS   : -10.280
+Type  : Recovery 'Acelerometro:A1|i2c_master:U1|busy'
+Slack : -2.684
+TNS   : -10.736
 
-Type  : Removal 'i2c_master:U1|busy'
-Slack : 3.024
+Type  : Removal 'Acelerometro:A1|i2c_master:U1|busy'
+Slack : 3.131
 TNS   : 0.000
 
 Type  : Minimum Pulse Width 'clk'
-Slack : -3.000
-TNS   : -112.434
+Slack : -3.166
+TNS   : -234.413
 
-Type  : Minimum Pulse Width 'i2c_master:U1|busy'
+Type  : Minimum Pulse Width 'Acelerometro:A1|i2c_master:U1|busy'
 Slack : -1.403
 TNS   : -5.612
 

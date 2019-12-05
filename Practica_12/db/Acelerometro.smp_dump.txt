@@ -1,11 +1,11 @@
 
-State Machine - |Acelerometro|edo_actual
+State Machine - |Controller|Acelerometro:A1|edo_actual
 Name edo_actual.espera edo_actual.lee edo_actual.inicia 
 edo_actual.inicia 0 0 0 
 edo_actual.lee 0 1 1 
 edo_actual.espera 1 0 1 
 
-State Machine - |Acelerometro|i2c_master:U1|state
+State Machine - |Controller|Acelerometro:A1|i2c_master:U1|state
 Name state.stop state.mstr_ack state.slv_ack2 state.rd state.wr state.slv_ack1 state.command state.start state.ready 
 state.ready 0 0 0 0 0 0 0 0 0 
 state.start 0 0 0 0 0 0 0 1 1 

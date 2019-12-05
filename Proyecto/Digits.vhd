@@ -15,6 +15,7 @@ entity Digits is
 	(
 		-- Entradas
 		clk		 : in	std_logic;								 -- Reloj Para controlar lo saltos de estados
+		dato_input: in	std_logic;
 		is_digit  : in std_logic;								 -- El digito entrante es un digito	(0-9)
 		is_oper   : in std_logic;                        -- El digito entrante es una operacion (*,#)
 		--is_ready  : in std_logic;								 -- Si los datos es para indicar que inicie el proceso (D)
@@ -27,6 +28,8 @@ entity Digits is
 		Sal1	 : out	std_logic_vector(3 downto 0);   -- Salida de bits (decenas)
 		Sal2	 : out	std_logic_vector(3 downto 0);   -- Salida de bits (centenas)
 		exception : out std_logic := '0'; 						 -- Bandera que se activa cuando la cantidad excede los 100
+		--debug 	 : out std_logic_vector(3 downto 0);
+		debug_state 	 : out std_logic_vector(3 downto 0);
 		save_o : out	std_logic   						 -- Bandera para indicar que se debe guardar
 	);
 
@@ -42,16 +45,19 @@ architecture rtl of Digits is
 	
 	signal is_zero1 : std_logic := '0';
 	signal is_zero2 : std_logic := '0';
+	
+	signal unidades : std_logic_vector(3 downto 0); 
+	signal decenas : std_logic_vector(3 downto 0);
+	signal centenas : std_logic_vector(3 downto 0);
 begin
 
 	process (clk, reset)
 	begin
 
-		if reset = '1' then
-			state <= Idle;
-
-		elsif (rising_edge(clk)) then
-
+		if ( rising_edge(dato_input) ) then
+			if reset = '1' then
+				state <= Idle;
+			end if;
 			-- Determine the next state synchronously, based on
 			-- the current state and the input
 			case state is
@@ -61,11 +67,13 @@ begin
 					else
 						state <= Idle;
 					end if;
+					debug_state <= "0001";
 				when D1=>
 					if is_digit = '1' then
+						--debug <= digits;
 						state <= D2;
 					elsif is_oper = '1' then
-						if digits = "1110" then  -- Si el digito es * regresa a un estado anterior.
+						if digits = "1101" then  -- Si el digito es * regresa a un estado anterior.
 							state <= Idle;
 						else							 -- Si el digito es # entonces guardara.
 							state <= Idle;
@@ -73,10 +81,12 @@ begin
 					else								 -- Si no es ninguna opcion se queda en el estado.
 						state <= D1;
 					end if;
+					debug_state <= "0010";
 				when D2=>
 					if is_digit = '1' then								-- Se verifica que la cantidad no exceda los 100 permitidos
 						if digits = "0001" then
 							if is_zero1 = '1' and is_zero1 = '1' then
+								--debug <= digits;
 								state <= D3;
 							else
 								state <= D2;
@@ -85,7 +95,7 @@ begin
 							state <= D2;					
 						end if;
 					elsif is_oper = '1' then
-						if digits = "1110" then  -- Si el digito es * regresa a un estado anterior.
+						if digits = "1101" then  -- Si el digito es * regresa a un estado anterior.
 							state <= D1;
 						else							 -- Si el digito es # entonces guardara.
 							state <= Idle;
@@ -93,9 +103,10 @@ begin
 					else								 -- Si no es ninguna opcion se queda en el estado.
 						state <= D2;
 					end if;
+					debug_state <= "0011";
 				when D3=>
 					if is_oper = '1' then
-						if digits = "1110" then  -- Si el digito es * regresa a un estado anterior.
+						if digits = "1101" then  -- Si el digito es * regresa a un estado anterior.
 							state <= D2;
 						else							 -- Si el digito es # entonces guardara.
 							state <= Idle;
@@ -103,6 +114,7 @@ begin
 					else								 -- Si no es ninguna opcion se queda en el estado.
 						state <= D3;
 					end if;
+					debug_state <= "0100";
 			end case;
 
 		end if;
@@ -112,86 +124,104 @@ begin
 	-- and the input (do not wait for a clock edge).
 	process (state, is_digit,is_oper)
 	begin
+			if digits = "1100" then
+				save_o <= '1';
+			else
+				save_o <= '0';
+			end if;
 			case state is
 				when Idle=>
 					if is_digit = '1' then
+						--debug <= digits;
 						if digits = "0000" then
 							is_zero1 <='1';
 						end if;
 						Sal0   <= digits;
+						unidades <= digits;
 						Sal1   <= "0000";
 						Sal2   <= "0000";
-						save_o <= '0';
+						--save_o <= '0';
 					else
 						Sal0   <= "0000";
 						Sal1   <= "0000";
 						Sal2   <= "0000";
-						save_o <= '0';
+						--save_o <= '0';
 					end if;
 				when D1=>
+					--debug <= digits;
 					if is_digit = '1' then
 						if digits = "0000" then
 							is_zero2 <='1';
 						end if;
-						Sal1   <= digits;
+						Sal0   <= digits; 
+						Sal1   <= unidades;
+						decenas <= unidades;
 						Sal2   <= "0000";
-						save_o <= '0';
+						--save_o <= '0';
 					elsif is_oper = '1' then
 						if digits = "1110" then  -- Si el digito es * regresa a un estado anterior.
 							Sal0   <= "0000";
 							Sal1   <= "0000";
 							Sal2   <= "0000";
-							save_o <= '0';
+							--save_o <= '0';
 						else							 -- Si el digito es # entonces guardara.
 							Sal1   <= "0000";
 							Sal2   <= "0000";
-							save_o <= '1';
+							unidades <= "0000";
+							decenas	<= "0000";
+							--save_o <= '1';
 						end if;
 					else								 -- Si no es ninguna opcion se queda en el estado.
 						Sal0   <= "0000";
 						Sal1   <= "0000";
 						Sal2   <= "0000";
-						save_o <= '0';
+						--save_o <= '0';
 					end if;
 				when D2=>
+					--debug <= digits;
 					if is_digit = '1' then
 						if digits = "0001" then
 							if is_zero1 = '1' and is_zero1 = '1' then
-								Sal2   <= digits;
-								save_o <= '0';
+								Sal2   <= decenas;
+								Sal1	 <= unidades;
+								Sal0   <= digits;
+								--save_o <= '0';
 							else
 								exception <= '1';
-								save_o <= '0';
+								--save_o <= '0';
 							end if;
 						else
 								exception <= '1';
-								save_o <= '0';						
+								--save_o <= '0';						
 						end if;
 					elsif is_oper = '1' then
 						if digits = "1110" then  -- Si el digito es * regresa a un estado anterior.
 							Sal1   <= "0000";
 							Sal2   <= "0000";
-							save_o <= '0';
+							--save_o <= '0';
 						else							 -- Si el digito es # entonces guardara.
 							Sal2   <= "0000";
-							save_o <= '1';
+							--save_o <= '1';
+							unidades <= "0000";
+							decenas	<= "0000";
 						end if;
 					else								 -- Si no es ninguna opcion se queda en el estado.
 						Sal0   <= "0000";
 						Sal1   <= "0000";
 						Sal2   <= "0000";
-						save_o <= '0';
+						--save_o <= '0';
 					end if;
 				when D3=>
+					--debug <= digits;
 					if is_oper = '1' then
 						if digits = "1110" then  -- Si el digito es * regresa a un estado anterior.
 							Sal2   <= "0000";
-							save_o <= '0';
+							--save_o <= '0';
 						else							 -- Si el digito es # entonces guardara.
-							save_o <= '1';
+							--save_o <= '1';
 						end if;
 					else							 -- Si no es ninguna opcion se queda en el estado.
-						save_o <= '0';
+						--save_o <= '0';
 					end if;
 			end case;
 	end process;

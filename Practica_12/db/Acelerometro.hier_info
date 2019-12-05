@@ -1,4 +1,99 @@
-|Acelerometro
+|Controller
+clk => Acelerometro:A1.clk
+clk => leds[0]~reg0.CLK
+clk => leds[1]~reg0.CLK
+clk => leds[2]~reg0.CLK
+clk => leds[3]~reg0.CLK
+clk => leds[4]~reg0.CLK
+clk => leds[5]~reg0.CLK
+clk => leds[6]~reg0.CLK
+clk => leds[7]~reg0.CLK
+clk => leds[8]~reg0.CLK
+clk => leds[9]~reg0.CLK
+clk => valor[0].CLK
+clk => valor[1].CLK
+clk => valor[2].CLK
+clk => valor[3].CLK
+clk => valor[4].CLK
+clk => valor[5].CLK
+clk => valor[6].CLK
+clk => valor[7].CLK
+clk => valor[8].CLK
+clk => valor[9].CLK
+clk => valor[10].CLK
+clk => valor[11].CLK
+clk => valor[12].CLK
+clk => valor[13].CLK
+clk => valor[14].CLK
+clk => valor[15].CLK
+clk => valor[16].CLK
+clk => valor[17].CLK
+clk => valor[18].CLK
+clk => valor[19].CLK
+clk => valor[20].CLK
+clk => valor[21].CLK
+clk => valor[22].CLK
+clk => valor[23].CLK
+clk => valor[24].CLK
+clk => valor[25].CLK
+clk => valor[26].CLK
+clk => valor[27].CLK
+clk => valor[28].CLK
+clk => valor[29].CLK
+clk => valor[30].CLK
+clk => valor[31].CLK
+clk => n[0].CLK
+clk => n[1].CLK
+clk => n[2].CLK
+clk => n[3].CLK
+clk => n[4].CLK
+clk => n[5].CLK
+clk => n[6].CLK
+clk => n[7].CLK
+clk => n[8].CLK
+clk => n[9].CLK
+clk => n[10].CLK
+clk => n[11].CLK
+clk => n[12].CLK
+clk => n[13].CLK
+clk => n[14].CLK
+clk => n[15].CLK
+clk => n[16].CLK
+clk => n[17].CLK
+clk => n[18].CLK
+clk => n[19].CLK
+clk => n[20].CLK
+clk => n[21].CLK
+clk => n[22].CLK
+clk => n[23].CLK
+clk => n[24].CLK
+clk => n[25].CLK
+clk => n[26].CLK
+clk => n[27].CLK
+clk => n[28].CLK
+clk => n[29].CLK
+clk => n[30].CLK
+clk => n[31].CLK
+scl <> Acelerometro:A1.scl
+sda <> Acelerometro:A1.sda
+leds[0] << leds[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] << leds[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] << leds[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] << leds[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] << leds[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] << leds[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] << leds[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[7] << leds[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[8] << leds[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[9] << leds[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+error << Acelerometro:A1.error
+reset => Acelerometro:A1.reset
+modo => Acelerometro:A1.reg_dataX0[1]
+modo => Acelerometro:A1.reg_dataX0[2]
+mclk << Acelerometro:A1.mclk
+
+
+|Controller|Acelerometro:A1
 clk => i2c_master:U1.clk
 clk => muestra_prev.CLK
 clk => Divisor:U2.clk
@@ -20,10 +115,18 @@ reset => edo_actual.OUTPUTSELECT
 reset => edo_actual.OUTPUTSELECT
 reset => edo_actual.OUTPUTSELECT
 reset => muestra_prev.ENA
+reg_dataX0[0] => Mux26.IN3
+reg_dataX0[1] => Mux25.IN3
+reg_dataX0[2] => Mux24.IN3
+reg_dataX0[3] => Mux23.IN3
+reg_dataX0[4] => Mux22.IN3
+reg_dataX0[5] => Mux21.IN3
+reg_dataX0[6] => Mux20.IN3
+reg_dataX0[7] => Mux19.IN3
 mclk <= Divisor:U2.div_clk
 
 
-|Acelerometro|i2c_master:U1
+|Controller|Acelerometro:A1|i2c_master:U1
 clk => data_rx[0].CLK
 clk => data_rx[1].CLK
 clk => data_rx[2].CLK
@@ -198,7 +301,7 @@ sda <> sda
 scl <> scl
 
 
-|Acelerometro|Divisor:U2
+|Controller|Acelerometro:A1|Divisor:U2
 clk => cuenta[0].CLK
 clk => cuenta[1].CLK
 clk => cuenta[2].CLK

@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M50DAF484C7G
-set_global_assignment -name TOP_LEVEL_ENTITY Acelerometro
+set_global_assignment -name TOP_LEVEL_ENTITY Controller
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:57:45  NOVEMBER 20, 2019"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
@@ -66,12 +66,13 @@ set_location_assignment PIN_B11 -to leds[9]
 set_location_assignment PIN_C10 -to reset
 set_location_assignment PIN_V11 -to sda
 set_location_assignment PIN_AB15 -to scl
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_AB16 -to cs_n
 set_instance_assignment -name RESERVE_PIN AS_OUTPUT_DRIVING_VCC -to cs_n
 set_location_assignment PIN_V12 -to sdo
 set_instance_assignment -name RESERVE_PIN AS_OUTPUT_DRIVING_GROUND -to sdo
 set_global_assignment -name VHDL_FILE output_files/Controller.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_F15 -to modo
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

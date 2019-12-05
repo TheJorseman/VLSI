@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484) Path("D:/Enrique/Documentos/Practica12vlsi/output_files/") File("Acelerometro.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484) Path("C:/Users/migue/Documents/GitHub/VLSI/Practica_12/output_files/") File("Acelerometro.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

@@ -1,9 +1,9 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 --use IEEE.STD_LOGIC_ARITH.ALL;
---ssuse IEEE.STD_LOGIC_UNSIGNED.ALL;
---use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.numeric_std.ALL;
+--use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+--use IEEE.NUMERIC_STD.ALL;
 
 entity Controller is
 	Port ( clk  : in    STD_LOGIC;
@@ -20,7 +20,7 @@ entity Controller is
 architecture Behavioral of Controller is
 
 	signal reg_dataX0 : std_logic_vector(7 downto 0) := X"34";
-	signal salida: std_logic_vector(12 downto 0);
+	signal salida_s: std_logic_vector(9 downto 0);
 	constant nivel: integer := 10;
 	constant minimo: integer := -2048;
 	constant maximo: integer := 2048;
@@ -42,6 +42,9 @@ architecture Behavioral of Controller is
 	end component Acelerometro;
 	
 	begin
+	
+	A1: Acelerometro port map (clk, scl, sda, salida_s, error, reset,reg_dataX0, mclk);
+	
 	With modo select reg_dataX0 <=
 		X"34" when '0',
 		X"32" when '1',
@@ -58,18 +61,18 @@ architecture Behavioral of Controller is
 		end if;
 	end process;
 		
-	p_nivel: process(clk, n, salida)
+	p_nivel: process(clk, n, salida_s)
 	begin
 		if rising_edge(clk) then
-			valor <= to_integer(salida);
-			if(valor > minimo + n * particion And valor < minimo + (n + 1) * particion) then
+			valor <= conv_integer(signed(salida_s));
+			if(valor > minimo + n * particion and valor < minimo + (n + 1) * particion) then
 			--sal_aux <= X"00";
-				leds <= X"00";
+				leds <= "0000000000";
 				leds(n) <= '1';
 			end if;
 		end if;
 		
 	end process;
 		
-	A1: Acelerometro port map (clk, scl, sda, salida, error, reset,reg_dataX0, mclk);
+
 end Behavioral;

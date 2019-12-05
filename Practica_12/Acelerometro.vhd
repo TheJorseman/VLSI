@@ -7,7 +7,7 @@ entity Acelerometro is
    Port ( clk  : in    STD_LOGIC;
           scl  : inout STD_LOGIC;
           sda  : inout STD_LOGIC;
-          leds : out   STD_LOGIC_VECTOR(12 downto 0);
+          leds : out   STD_LOGIC_VECTOR(9 downto 0);
           error: out   STD_LOGIC;
           reset: in    STD_LOGIC;
 			 reg_dataX0 : in std_logic_vector(7 downto 0) := X"34";
@@ -176,7 +176,7 @@ begin
    end process;
 
    error <= i2c_ack_error;
-   leds <=   AX(12 DOWNTO 0);
+   leds <=   AX(9 DOWNTO 0);
    mclk <= clk_muestra;
 
 end Behavioral;

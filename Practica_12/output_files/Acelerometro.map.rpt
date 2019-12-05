@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Acelerometro
-Fri Nov 22 01:03:33 2019
+Fri Nov 22 00:07:54 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -10,7 +10,27 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |Controller|Acelerometro:A1|edo_actual
+ 10. State Machine - |Controller|Acelerometro:A1|i2c_master:U1|state
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: Acelerometro:A1|i2c_master:U1
+ 17. Parameter Settings for User Entity Instance: Acelerometro:A1|Divisor:U2
+ 18. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 19. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1
+ 20. lpm_mult Parameter Settings by Entity Instance
+ 21. Port Connectivity Checks: "Acelerometro:A1|i2c_master:U1"
+ 22. Port Connectivity Checks: "Acelerometro:A1"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
 
 
 
@@ -36,22 +56,22 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Fri Nov 22 01:03:33 2019           ;
+; Analysis & Synthesis Status        ; Successful - Fri Nov 22 00:07:54 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; Acelerometro                                ;
-; Top-level Entity Name              ; Acelerometro                                ;
+; Top-level Entity Name              ; Controller                                  ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
-; UFM blocks                         ; N/A until Partition Merge                   ;
-; ADC blocks                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 405                                         ;
+;     Total combinational functions  ; 396                                         ;
+;     Dedicated logic registers      ; 137                                         ;
+; Total registers                    ; 137                                         ;
+; Total pins                         ; 17                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 8                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -61,7 +81,7 @@ refer to the applicable agreement for further details.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; Acelerometro       ; Acelerometro       ;
+; Top-level entity name                                            ; Controller         ; Acelerometro       ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -146,15 +166,395 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 8           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
 +----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; i2c_master.vhd                   ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Practica_12/i2c_master.vhd              ;         ;
+; divisor.vhd                      ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Practica_12/divisor.vhd                 ;         ;
+; Acelerometro.vhd                 ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd            ;         ;
+; output_files/Controller.vhd      ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Practica_12/output_files/Controller.vhd ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/lpm_mult.tdf         ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/aglobal181.inc       ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/lpm_add_sub.inc      ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/multcore.inc         ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/bypassff.inc         ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/altshift.inc         ;         ;
+; db/mult_6ks.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/migue/Documents/GitHub/VLSI/Practica_12/db/mult_6ks.tdf             ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 405       ;
+;                                             ;           ;
+; Total combinational functions               ; 396       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 160       ;
+;     -- 3 input functions                    ; 85        ;
+;     -- <=2 input functions                  ; 151       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 262       ;
+;     -- arithmetic mode                      ; 134       ;
+;                                             ;           ;
+; Total registers                             ; 137       ;
+;     -- Dedicated logic registers            ; 137       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 17        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 8         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 133       ;
+; Total fan-out                               ; 1606      ;
+; Average fan-out                             ; 2.78      ;
++---------------------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                     ;
++---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+--------------+--------------+
+; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                ; Entity Name  ; Library Name ;
++---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+--------------+--------------+
+; |Controller                     ; 396 (186)           ; 137 (53)                  ; 0           ; 0          ; 8            ; 0       ; 4         ; 17   ; 0            ; 0          ; |Controller                                        ; Controller   ; work         ;
+;    |Acelerometro:A1|            ; 172 (36)            ; 84 (8)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Controller|Acelerometro:A1                        ; Acelerometro ; work         ;
+;       |Divisor:U2|              ; 25 (25)             ; 25 (25)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Controller|Acelerometro:A1|Divisor:U2             ; Divisor      ; work         ;
+;       |i2c_master:U1|           ; 111 (111)           ; 51 (51)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Controller|Acelerometro:A1|i2c_master:U1          ; i2c_master   ; work         ;
+;    |lpm_mult:Mult0|             ; 19 (0)              ; 0 (0)                     ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |Controller|lpm_mult:Mult0                         ; lpm_mult     ; work         ;
+;       |mult_6ks:auto_generated| ; 19 (19)             ; 0 (0)                     ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |Controller|lpm_mult:Mult0|mult_6ks:auto_generated ; mult_6ks     ; work         ;
+;    |lpm_mult:Mult1|             ; 19 (0)              ; 0 (0)                     ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |Controller|lpm_mult:Mult1                         ; lpm_mult     ; work         ;
+;       |mult_6ks:auto_generated| ; 19 (19)             ; 0 (0)                     ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |Controller|lpm_mult:Mult1|mult_6ks:auto_generated ; mult_6ks     ; work         ;
++---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 4           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 8           ;
+; Signed Embedded Multipliers           ; 2           ;
+; Unsigned Embedded Multipliers         ; 0           ;
+; Mixed Sign Embedded Multipliers       ; 2           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------+
+; State Machine - |Controller|Acelerometro:A1|edo_actual                     ;
++-------------------+-------------------+----------------+-------------------+
+; Name              ; edo_actual.espera ; edo_actual.lee ; edo_actual.inicia ;
++-------------------+-------------------+----------------+-------------------+
+; edo_actual.inicia ; 0                 ; 0              ; 0                 ;
+; edo_actual.lee    ; 0                 ; 1              ; 1                 ;
+; edo_actual.espera ; 1                 ; 0              ; 1                 ;
++-------------------+-------------------+----------------+-------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Controller|Acelerometro:A1|i2c_master:U1|state                                                                                  ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+; Name           ; state.stop ; state.mstr_ack ; state.slv_ack2 ; state.rd ; state.wr ; state.slv_ack1 ; state.command ; state.start ; state.ready ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+; state.ready    ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 0           ;
+; state.start    ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 1           ; 1           ;
+; state.command  ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 1             ; 0           ; 1           ;
+; state.slv_ack1 ; 0          ; 0              ; 0              ; 0        ; 0        ; 1              ; 0             ; 0           ; 1           ;
+; state.wr       ; 0          ; 0              ; 0              ; 0        ; 1        ; 0              ; 0             ; 0           ; 1           ;
+; state.rd       ; 0          ; 0              ; 0              ; 1        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.slv_ack2 ; 0          ; 0              ; 1              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.mstr_ack ; 0          ; 1              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.stop     ; 1          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                  ;
++-----------------------------------------------------+-----------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal   ; Free of Timing Hazards ;
++-----------------------------------------------------+-----------------------+------------------------+
+; Acelerometro:A1|AX[9]                               ; Acelerometro:A1|AX[9] ; yes                    ;
+; Acelerometro:A1|AX[8]                               ; Acelerometro:A1|AX[9] ; yes                    ;
+; Acelerometro:A1|AX[7]                               ; Acelerometro:A1|AX[7] ; yes                    ;
+; Acelerometro:A1|AX[6]                               ; Acelerometro:A1|AX[7] ; yes                    ;
+; Acelerometro:A1|AX[5]                               ; Acelerometro:A1|AX[7] ; yes                    ;
+; Acelerometro:A1|AX[4]                               ; Acelerometro:A1|AX[7] ; yes                    ;
+; Acelerometro:A1|AX[3]                               ; Acelerometro:A1|AX[7] ; yes                    ;
+; Acelerometro:A1|AX[2]                               ; Acelerometro:A1|AX[7] ; yes                    ;
+; Acelerometro:A1|AX[1]                               ; Acelerometro:A1|AX[7] ; yes                    ;
+; Acelerometro:A1|AX[0]                               ; Acelerometro:A1|AX[7] ; yes                    ;
+; Number of user-specified and inferred latches = 10  ;                       ;                        ;
++-----------------------------------------------------+-----------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                  ;
++----------------------------------------------+------------------------------------------------------+
+; Register name                                ; Reason for Removal                                   ;
++----------------------------------------------+------------------------------------------------------+
+; Acelerometro:A1|i2c_master:U1|addr_rw[2,5,7] ; Merged with Acelerometro:A1|i2c_master:U1|addr_rw[1] ;
+; Acelerometro:A1|i2c_master:U1|addr_rw[4,6]   ; Merged with Acelerometro:A1|i2c_master:U1|addr_rw[3] ;
+; Acelerometro:A1|i2c_master:U1|data_tx[7]     ; Merged with Acelerometro:A1|i2c_master:U1|data_tx[6] ;
+; valor[9,11..30]                              ; Merged with valor[10]                                ;
+; Acelerometro:A1|i2c_master:U1|addr_rw[3]     ; Stuck at GND due to stuck port data_in               ;
+; Acelerometro:A1|i2c_master:U1|data_tx[6]     ; Stuck at GND due to stuck port data_in               ;
+; Acelerometro:A1|Divisor:U2|cuenta[25..27]    ; Lost fanout                                          ;
+; Total Number of Removed Registers = 32       ;                                                      ;
++----------------------------------------------+------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 137   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 4     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 46    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------+
+; Inverted Register Statistics                       ;
++------------------------------------------+---------+
+; Inverted Register                        ; Fan out ;
++------------------------------------------+---------+
+; valor[31]                                ; 2       ;
+; valor[0]                                 ; 1       ;
+; Acelerometro:A1|i2c_master:U1|bit_cnt[2] ; 20      ;
+; Acelerometro:A1|i2c_master:U1|bit_cnt[1] ; 21      ;
+; Acelerometro:A1|i2c_master:U1|bit_cnt[0] ; 21      ;
+; Acelerometro:A1|i2c_master:U1|sda_int    ; 3       ;
+; Total number of inverted registers = 6   ;         ;
++------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |Controller|Acelerometro:A1|i2c_master:U1|addr_rw[0] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Controller|Acelerometro:A1|i2c_master:U1|bit_cnt[0] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Controller|n[12]                                    ;
+; 1:1                ; 2 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |Controller|Acelerometro:A1|Mux39                    ;
+; 1:1                ; 8 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |Controller|Acelerometro:A1|Mux34                    ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Controller|Acelerometro:A1|edo_actual               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Acelerometro:A1|i2c_master:U1 ;
++----------------+----------+------------------------------------------------+
+; Parameter Name ; Value    ; Type                                           ;
++----------------+----------+------------------------------------------------+
+; input_clk      ; 50000000 ; Signed Integer                                 ;
+; bus_clk        ; 400000   ; Signed Integer                                 ;
++----------------+----------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Acelerometro:A1|Divisor:U2 ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; N              ; 24    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                 ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32       ; Untyped             ;
+; LPM_WIDTHB                                     ; 10       ; Untyped             ;
+; LPM_WIDTHP                                     ; 42       ; Untyped             ;
+; LPM_WIDTHR                                     ; 42       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; YES      ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_6ks ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1                 ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32       ; Untyped             ;
+; LPM_WIDTHB                                     ; 10       ; Untyped             ;
+; LPM_WIDTHP                                     ; 42       ; Untyped             ;
+; LPM_WIDTHR                                     ; 42       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; YES      ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_6ks ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance         ;
++---------------------------------------+----------------+
+; Name                                  ; Value          ;
++---------------------------------------+----------------+
+; Number of entity instances            ; 2              ;
+; Entity Instance                       ; lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32             ;
+;     -- LPM_WIDTHB                     ; 10             ;
+;     -- LPM_WIDTHP                     ; 42             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; YES            ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 32             ;
+;     -- LPM_WIDTHB                     ; 10             ;
+;     -- LPM_WIDTHP                     ; 42             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; YES            ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
++---------------------------------------+----------------+
+
+
++-----------------------------------------------------------+
+; Port Connectivity Checks: "Acelerometro:A1|i2c_master:U1" ;
++------------+-------+----------+---------------------------+
+; Port       ; Type  ; Severity ; Details                   ;
++------------+-------+----------+---------------------------+
+; reset_n    ; Input ; Info     ; Stuck at VCC              ;
+; addr[3..2] ; Input ; Info     ; Stuck at GND              ;
+; addr[5]    ; Input ; Info     ; Stuck at GND              ;
++------------+-------+----------+---------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "Acelerometro:A1"        ;
++------------------+-------+----------+--------------+
+; Port             ; Type  ; Severity ; Details      ;
++------------------+-------+----------+--------------+
+; reg_datax0[5..4] ; Input ; Info     ; Stuck at VCC ;
+; reg_datax0[7..6] ; Input ; Info     ; Stuck at GND ;
+; reg_datax0[3]    ; Input ; Info     ; Stuck at GND ;
+; reg_datax0[0]    ; Input ; Info     ; Stuck at GND ;
++------------------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 17                          ;
+; cycloneiii_ff         ; 137                         ;
+;     CLR               ; 4                           ;
+;     ENA               ; 46                          ;
+;     plain             ; 87                          ;
+; cycloneiii_io_obuf    ; 2                           ;
+; cycloneiii_lcell_comb ; 396                         ;
+;     arith             ; 134                         ;
+;         2 data inputs ; 112                         ;
+;         3 data inputs ; 22                          ;
+;     normal            ; 262                         ;
+;         1 data inputs ; 14                          ;
+;         2 data inputs ; 25                          ;
+;         3 data inputs ; 63                          ;
+;         4 data inputs ; 160                         ;
+; cycloneiii_mac_mult   ; 4                           ;
+; cycloneiii_mac_out    ; 4                           ;
+;                       ;                             ;
+; Max LUT depth         ; 16.00                       ;
+; Average LUT depth     ; 5.09                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -163,27 +563,85 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Nov 22 01:03:19 2019
+    Info: Processing started: Fri Nov 22 00:07:40 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Acelerometro -c Acelerometro
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file i2c_master.vhd
-    Info (12022): Found design unit 1: i2c_master-logic File: D:/Enrique/Documentos/Practica12vlsi/i2c_master.vhd Line: 54
-    Info (12023): Found entity 1: i2c_master File: D:/Enrique/Documentos/Practica12vlsi/i2c_master.vhd Line: 36
+    Info (12022): Found design unit 1: i2c_master-logic File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/i2c_master.vhd Line: 54
+    Info (12023): Found entity 1: i2c_master File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/i2c_master.vhd Line: 36
 Info (12021): Found 2 design units, including 1 entities, in source file divisor.vhd
-    Info (12022): Found design unit 1: Divisor-Behavioral File: D:/Enrique/Documentos/Practica12vlsi/divisor.vhd Line: 10
-    Info (12023): Found entity 1: Divisor File: D:/Enrique/Documentos/Practica12vlsi/divisor.vhd Line: 5
+    Info (12022): Found design unit 1: Divisor-Behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/divisor.vhd Line: 10
+    Info (12023): Found entity 1: Divisor File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/divisor.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file acelerometro.vhd
-    Info (12022): Found design unit 1: Acelerometro-Behavioral File: D:/Enrique/Documentos/Practica12vlsi/Acelerometro.vhd Line: 17
-    Info (12023): Found entity 1: Acelerometro File: D:/Enrique/Documentos/Practica12vlsi/Acelerometro.vhd Line: 6
+    Info (12022): Found design unit 1: Acelerometro-Behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 17
+    Info (12023): Found entity 1: Acelerometro File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file output_files/controller.vhd
-    Info (12022): Found design unit 1: Controller-Behavioral File: D:/Enrique/Documentos/Practica12vlsi/output_files/Controller.vhd Line: 20
-    Info (12023): Found entity 1: Controller File: D:/Enrique/Documentos/Practica12vlsi/output_files/Controller.vhd Line: 8
-Error (10405): VHDL error at Controller.vhd(64): can't determine type of object at or near identifier "to_integer" -- found 0 possible types File: D:/Enrique/Documentos/Practica12vlsi/output_files/Controller.vhd Line: 64
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 4797 megabytes
-    Error: Processing ended: Fri Nov 22 01:03:33 2019
-    Error: Elapsed time: 00:00:14
-    Error: Total CPU time (on all processors): 00:00:32
+    Info (12022): Found design unit 1: Controller-Behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/output_files/Controller.vhd Line: 20
+    Info (12023): Found entity 1: Controller File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/output_files/Controller.vhd Line: 8
+Info (12127): Elaborating entity "Controller" for the top level hierarchy
+Warning (10540): VHDL Signal Declaration warning at Controller.vhd(27): used explicit default value for signal "particion" because signal was never assigned a value File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/output_files/Controller.vhd Line: 27
+Info (12128): Elaborating entity "Acelerometro" for hierarchy "Acelerometro:A1" File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/output_files/Controller.vhd Line: 74
+Warning (10492): VHDL Process Statement warning at Acelerometro.vhd(130): signal "reg_dataX0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 130
+Warning (10492): VHDL Process Statement warning at Acelerometro.vhd(135): signal "reg_dataX0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 135
+Warning (10492): VHDL Process Statement warning at Acelerometro.vhd(143): signal "reg_dataX0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 143
+Warning (10492): VHDL Process Statement warning at Acelerometro.vhd(152): signal "reg_dataX0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 152
+Warning (10631): VHDL Process Statement warning at Acelerometro.vhd(91): inferring latch(es) for signal or variable "AX", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 91
+Info (10041): Inferred latch for "AX[0]" at Acelerometro.vhd(91) File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 91
+Info (10041): Inferred latch for "AX[1]" at Acelerometro.vhd(91) File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 91
+Info (10041): Inferred latch for "AX[2]" at Acelerometro.vhd(91) File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 91
+Info (10041): Inferred latch for "AX[3]" at Acelerometro.vhd(91) File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 91
+Info (10041): Inferred latch for "AX[4]" at Acelerometro.vhd(91) File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 91
+Info (10041): Inferred latch for "AX[5]" at Acelerometro.vhd(91) File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 91
+Info (10041): Inferred latch for "AX[6]" at Acelerometro.vhd(91) File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 91
+Info (10041): Inferred latch for "AX[7]" at Acelerometro.vhd(91) File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 91
+Info (10041): Inferred latch for "AX[8]" at Acelerometro.vhd(91) File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 91
+Info (10041): Inferred latch for "AX[9]" at Acelerometro.vhd(91) File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 91
+Info (12128): Elaborating entity "i2c_master" for hierarchy "Acelerometro:A1|i2c_master:U1" File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 62
+Info (12128): Elaborating entity "Divisor" for hierarchy "Acelerometro:A1|Divisor:U2" File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/Acelerometro.vhd Line: 63
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/output_files/Controller.vhd Line: 65
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult1" File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/output_files/Controller.vhd Line: 65
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/output_files/Controller.vhd Line: 65
+Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/output_files/Controller.vhd Line: 65
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "10"
+    Info (12134): Parameter "LPM_WIDTHP" = "42"
+    Info (12134): Parameter "LPM_WIDTHR" = "42"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_6ks.tdf
+    Info (12023): Found entity 1: mult_6ks File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/db/mult_6ks.tdf Line: 30
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult1" File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/output_files/Controller.vhd Line: 65
+Info (12133): Instantiated megafunction "lpm_mult:Mult1" with the following parameter: File: C:/Users/migue/Documents/GitHub/VLSI/Practica_12/output_files/Controller.vhd Line: 65
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "10"
+    Info (12134): Parameter "LPM_WIDTHP" = "42"
+    Info (12134): Parameter "LPM_WIDTHR" = "42"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (13014): Ignored 96 buffer(s)
+    Info (13019): Ignored 96 SOFT buffer(s)
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 452 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 12 output pins
+    Info (21060): Implemented 2 bidirectional pins
+    Info (21061): Implemented 427 logic cells
+    Info (21062): Implemented 8 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4861 megabytes
+    Info: Processing ended: Fri Nov 22 00:07:54 2019
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:27
 
 

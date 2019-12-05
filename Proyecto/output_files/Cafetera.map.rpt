@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Cafetera
-Sun Nov 17 21:11:58 2019
+Thu Dec 05 01:24:53 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,12 +13,27 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |Digits|state
+  8. State Machine - |Cafetera|Digits:Dig|state
   9. User-Specified and Inferred Latches
- 10. General Register Statistics
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Divisor:R1
+ 14. Parameter Settings for User Entity Instance: Input:RX|Divisor:R1
+ 15. Parameter Settings for User Entity Instance: memory_ram_controller:mc
+ 16. Parameter Settings for User Entity Instance: memory_ram_controller:mc|single_port_ram:RAM
+ 17. Parameter Settings for User Entity Instance: memory_ram_controller:mc|single_port_ram:ROM
+ 18. Parameter Settings for Inferred Entity Instance: bcd_to_bin:bcd|lpm_mult:Mult0
+ 19. Parameter Settings for Inferred Entity Instance: data_driver:dd|lpm_mult:Mult0
+ 20. lpm_mult Parameter Settings by Entity Instance
+ 21. Port Connectivity Checks: "memory_ram_controller:mc|single_port_ram:ROM"
+ 22. Port Connectivity Checks: "memory_ram_controller:mc"
+ 23. Port Connectivity Checks: "Digits:Dig"
+ 24. Port Connectivity Checks: "Input:RX|RX:Receptor"
+ 25. Port Connectivity Checks: "Input:RX"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
 
 
 
@@ -44,16 +59,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Nov 17 21:11:58 2019       ;
+; Analysis & Synthesis Status        ; Successful - Thu Dec 05 01:24:53 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; Cafetera                                    ;
-; Top-level Entity Name              ; Digits                                      ;
+; Top-level Entity Name              ; Cafetera                                    ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 45                                          ;
-;     Total combinational functions  ; 45                                          ;
-;     Dedicated logic registers      ; 4                                           ;
-; Total registers                    ; 4                                           ;
-; Total pins                         ; 22                                          ;
+; Total logic elements               ; 492                                         ;
+;     Total combinational functions  ; 485                                         ;
+;     Dedicated logic registers      ; 154                                         ;
+; Total registers                    ; 154                                         ;
+; Total pins                         ; 48                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -69,7 +84,7 @@ refer to the applicable agreement for further details.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; Digits             ; Cafetera           ;
+; Top-level entity name                                            ; Cafetera           ; Cafetera           ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Type of Retiming Performed During Resynthesis                    ; Full               ;                    ;
 ; Resynthesis Optimization Effort                                  ; Normal             ;                    ;
@@ -171,13 +186,44 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                    ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                             ; Library ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------+---------+
-; Digits.vhd                       ; yes             ; User VHDL File  ; C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd ;         ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                        ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                    ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+; ../Practica_03/temporizador.vhd  ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Practica_03/temporizador.vhd               ;         ;
+; ../Practica_05/divisor.vhd       ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Practica_05/divisor.vhd                    ;         ;
+; RX_lab.vhd                       ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Proyecto/RX_lab.vhd                        ;         ;
+; Digits.vhd                       ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd                        ;         ;
+; Cafetera.vhd                     ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd                      ;         ;
+; bcd_to_bin.vhd                   ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd                    ;         ;
+; memory_ram_controller.vhd        ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Proyecto/memory_ram_controller.vhd         ;         ;
+; single_port_ram.vhd              ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Proyecto/single_port_ram.vhd               ;         ;
+; push_driver.vhd                  ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd                   ;         ;
+; Input.vhd                        ; yes             ; User VHDL File               ; C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd                         ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/lpm_mult.tdf            ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/aglobal181.inc          ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/lpm_add_sub.inc         ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/multcore.inc            ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/bypassff.inc            ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/altshift.inc            ;         ;
+; multcore.tdf                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/multcore.tdf            ;         ;
+; csa_add.inc                      ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/csa_add.inc             ;         ;
+; mpar_add.inc                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/mpar_add.inc            ;         ;
+; muleabz.inc                      ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/muleabz.inc             ;         ;
+; mul_lfrg.inc                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/mul_lfrg.inc            ;         ;
+; mul_boothc.inc                   ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/mul_boothc.inc          ;         ;
+; alt_ded_mult.inc                 ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/alt_ded_mult.inc        ;         ;
+; alt_ded_mult_y.inc               ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/alt_ded_mult_y.inc      ;         ;
+; dffpipe.inc                      ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/dffpipe.inc             ;         ;
+; mpar_add.tdf                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/mpar_add.tdf            ;         ;
+; altshift.tdf                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/altshift.tdf            ;         ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/lpm_add_sub.tdf         ;         ;
+; addcore.inc                      ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/addcore.inc             ;         ;
+; look_add.inc                     ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/look_add.inc            ;         ;
+; alt_stratix_add_sub.inc          ; yes             ; Megafunction                 ; d:/programas/quartus181/quartus/libraries/megafunctions/alt_stratix_add_sub.inc ;         ;
+; db/add_sub_arg.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/migue/Documents/GitHub/VLSI/Proyecto/db/add_sub_arg.tdf                ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -185,46 +231,61 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 45             ;
+; Estimated Total logic elements              ; 492            ;
 ;                                             ;                ;
-; Total combinational functions               ; 45             ;
+; Total combinational functions               ; 485            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 14             ;
-;     -- 3 input functions                    ; 29             ;
-;     -- <=2 input functions                  ; 2              ;
+;     -- 4 input functions                    ; 125            ;
+;     -- 3 input functions                    ; 159            ;
+;     -- <=2 input functions                  ; 201            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 45             ;
-;     -- arithmetic mode                      ; 0              ;
+;     -- normal mode                          ; 321            ;
+;     -- arithmetic mode                      ; 164            ;
 ;                                             ;                ;
-; Total registers                             ; 4              ;
-;     -- Dedicated logic registers            ; 4              ;
+; Total registers                             ; 154            ;
+;     -- Dedicated logic registers            ; 154            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
-; I/O pins                                    ; 22             ;
+; I/O pins                                    ; 48             ;
 ;                                             ;                ;
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
-; Maximum fan-out node                        ; is_digit~input ;
-; Maximum fan-out                             ; 23             ;
-; Total fan-out                               ; 194            ;
-; Average fan-out                             ; 2.09           ;
+; Maximum fan-out node                        ; clk50MHz~input ;
+; Maximum fan-out                             ; 93             ;
+; Total fan-out                               ; 1877           ;
+; Average fan-out                             ; 2.55           ;
 +---------------------------------------------+----------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |Digits                    ; 45 (45)             ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 22   ; 0            ; 0          ; |Digits             ;             ;              ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                           ;
++------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                        ; Entity Name ; Library Name ;
++------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------+-------------+--------------+
+; |Cafetera                                      ; 485 (24)            ; 154 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 48   ; 0            ; 0          ; |Cafetera                                                                                                                  ; Cafetera    ; work         ;
+;    |Digits:Dig|                                ; 67 (67)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|Digits:Dig                                                                                                       ; Digits      ; work         ;
+;    |Input:RX|                                  ; 102 (22)            ; 67 (8)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|Input:RX                                                                                                         ; Input       ; work         ;
+;       |Divisor:R1|                             ; 22 (22)             ; 22 (22)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|Input:RX|Divisor:R1                                                                                              ; Divisor     ; work         ;
+;       |RX:Receptor|                            ; 58 (58)             ; 37 (37)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|Input:RX|RX:Receptor                                                                                             ; RX          ; work         ;
+;    |bcd_to_bin:bcd|                            ; 31 (29)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|bcd_to_bin:bcd                                                                                                   ; bcd_to_bin  ; work         ;
+;       |lpm_mult:Mult0|                         ; 2 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|bcd_to_bin:bcd|lpm_mult:Mult0                                                                                    ; lpm_mult    ; work         ;
+;          |multcore:mult_core|                  ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|bcd_to_bin:bcd|lpm_mult:Mult0|multcore:mult_core                                                                 ; multcore    ; work         ;
+;    |data_driver:dd|                            ; 261 (79)            ; 80 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|data_driver:dd                                                                                                   ; data_driver ; work         ;
+;       |Timer:T1|                               ; 103 (103)           ; 56 (56)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|data_driver:dd|Timer:T1                                                                                          ; Timer       ; work         ;
+;       |Timer:T2|                               ; 60 (60)             ; 24 (24)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|data_driver:dd|Timer:T2                                                                                          ; Timer       ; work         ;
+;       |lpm_mult:Mult0|                         ; 19 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|data_driver:dd|lpm_mult:Mult0                                                                                    ; lpm_mult    ; work         ;
+;          |multcore:mult_core|                  ; 19 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|data_driver:dd|lpm_mult:Mult0|multcore:mult_core                                                                 ; multcore    ; work         ;
+;             |mpar_add:padder|                  ; 8 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|data_driver:dd|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                 ; mpar_add    ; work         ;
+;                |lpm_add_sub:adder[0]|          ; 8 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|data_driver:dd|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                            ; lpm_add_sub ; work         ;
+;                   |add_sub_arg:auto_generated| ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Cafetera|data_driver:dd|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_arg:auto_generated ; add_sub_arg ; work         ;
++------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
 +----------------------------------------------------------+
-; State Machine - |Digits|state                            ;
+; State Machine - |Cafetera|Digits:Dig|state               ;
 +------------+----------+----------+----------+------------+
 ; Name       ; state.D3 ; state.D2 ; state.D1 ; state.Idle ;
 +------------+----------+----------+----------+------------+
@@ -235,26 +296,134 @@ Encoding Type:  One-Hot
 +------------+----------+----------+----------+------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                ;
-+-----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
-+-----------------------------------------------------+---------------------+------------------------+
-; Sal0[0]$latch                                       ; Selector19          ; yes                    ;
-; Sal0[1]$latch                                       ; Selector19          ; yes                    ;
-; Sal0[2]$latch                                       ; Selector19          ; yes                    ;
-; Sal0[3]$latch                                       ; Selector19          ; yes                    ;
-; Sal1[0]$latch                                       ; Selector14          ; yes                    ;
-; Sal1[1]$latch                                       ; Selector14          ; yes                    ;
-; Sal1[2]$latch                                       ; Selector14          ; yes                    ;
-; Sal1[3]$latch                                       ; Selector14          ; yes                    ;
-; Sal2[0]$latch                                       ; Selector9           ; yes                    ;
-; Sal2[1]$latch                                       ; Selector9           ; yes                    ;
-; Sal2[2]$latch                                       ; Selector9           ; yes                    ;
-; Sal2[3]$latch                                       ; Selector9           ; yes                    ;
-; Number of user-specified and inferred latches = 12  ;                     ;                        ;
-+-----------------------------------------------------+---------------------+------------------------+
++------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                  ;
++-----------------------------------------------------+-----------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal   ; Free of Timing Hazards ;
++-----------------------------------------------------+-----------------------+------------------------+
+; Digits:Dig|Sal0[0]                                  ; Digits:Dig|Selector28 ; yes                    ;
+; Digits:Dig|Sal0[1]                                  ; Digits:Dig|Selector28 ; yes                    ;
+; Digits:Dig|Sal0[2]                                  ; Digits:Dig|Selector28 ; yes                    ;
+; Digits:Dig|Sal0[3]                                  ; Digits:Dig|Selector28 ; yes                    ;
+; Digits:Dig|Sal1[0]                                  ; Digits:Dig|Selector22 ; yes                    ;
+; Digits:Dig|Sal1[1]                                  ; Digits:Dig|Selector22 ; yes                    ;
+; Digits:Dig|Sal1[2]                                  ; Digits:Dig|Selector22 ; yes                    ;
+; Digits:Dig|Sal1[3]                                  ; Digits:Dig|Selector22 ; yes                    ;
+; Digits:Dig|Sal2[0]                                  ; Digits:Dig|Selector17 ; yes                    ;
+; Digits:Dig|Sal2[1]                                  ; Digits:Dig|Selector17 ; yes                    ;
+; Digits:Dig|Sal2[2]                                  ; Digits:Dig|Selector17 ; yes                    ;
+; Digits:Dig|Sal2[3]                                  ; Digits:Dig|Selector17 ; yes                    ;
+; bcd_to_bin:bcd|bin[0]                               ; Digits:Dig|Equal1     ; yes                    ;
+; bcd_to_bin:bcd|bin[1]                               ; Digits:Dig|Equal1     ; yes                    ;
+; bcd_to_bin:bcd|bin[2]                               ; Digits:Dig|Equal1     ; yes                    ;
+; bcd_to_bin:bcd|bin[3]                               ; Digits:Dig|Equal1     ; yes                    ;
+; bcd_to_bin:bcd|bin[4]                               ; Digits:Dig|Equal1     ; yes                    ;
+; bcd_to_bin:bcd|bin[5]                               ; Digits:Dig|Equal1     ; yes                    ;
+; bcd_to_bin:bcd|bin[6]                               ; Digits:Dig|Equal1     ; yes                    ;
+; Digits:Dig|unidades[0]                              ; Digits:Dig|Selector23 ; yes                    ;
+; Digits:Dig|unidades[1]                              ; Digits:Dig|Selector23 ; yes                    ;
+; Digits:Dig|unidades[2]                              ; Digits:Dig|Selector23 ; yes                    ;
+; Digits:Dig|unidades[3]                              ; Digits:Dig|Selector23 ; yes                    ;
+; Digits:Dig|decenas[0]                               ; Digits:Dig|Selector0  ; yes                    ;
+; Digits:Dig|decenas[1]                               ; Digits:Dig|Selector0  ; yes                    ;
+; Digits:Dig|decenas[2]                               ; Digits:Dig|Selector0  ; yes                    ;
+; Digits:Dig|decenas[3]                               ; Digits:Dig|Selector0  ; yes                    ;
+; data_driver:dd|Tms1[19]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms1[18]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms1[17]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms1[16]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms1[15]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms1[14]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms1[13]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms1[12]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms1[11]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms1[10]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms1[9]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms1[8]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms1[7]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms1[6]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms1[5]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms1[4]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms1[3]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms1[2]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms2[19]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms2[18]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms2[17]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms2[16]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms2[15]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms2[14]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms2[13]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms2[12]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms2[11]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms2[10]                             ; start                 ; yes                    ;
+; data_driver:dd|Tms2[9]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms2[8]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms2[7]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms2[6]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms2[5]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms2[4]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms2[3]                              ; start                 ; yes                    ;
+; data_driver:dd|Tms2[2]                              ; start                 ; yes                    ;
+; data_driver:dd|porcentaje[13]                       ; start                 ; yes                    ;
+; data_driver:dd|porcentaje[12]                       ; start                 ; yes                    ;
+; data_driver:dd|porcentaje[11]                       ; start                 ; yes                    ;
+; data_driver:dd|porcentaje[10]                       ; start                 ; yes                    ;
+; data_driver:dd|porcentaje[9]                        ; start                 ; yes                    ;
+; data_driver:dd|porcentaje[8]                        ; start                 ; yes                    ;
+; data_driver:dd|porcentaje[7]                        ; start                 ; yes                    ;
+; data_driver:dd|porcentaje[6]                        ; start                 ; yes                    ;
+; data_driver:dd|porcentaje[5]                        ; start                 ; yes                    ;
+; data_driver:dd|porcentaje[4]                        ; start                 ; yes                    ;
+; data_driver:dd|porcentaje[3]                        ; start                 ; yes                    ;
+; data_driver:dd|porcentaje[2]                        ; start                 ; yes                    ;
+; Number of user-specified and inferred latches = 75  ;                       ;                        ;
++-----------------------------------------------------+-----------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                      ;
++----------------------------------------+------------------------------------------------+
+; Register name                          ; Reason for Removal                             ;
++----------------------------------------+------------------------------------------------+
+; Digits:Dig|debug_state[3]              ; Stuck at GND due to stuck port data_in         ;
+; Input:RX|tipo[2..9,11..31]             ; Merged with Input:RX|tipo[10]                  ;
+; data_driver:dd|Timer:T2|cuenta[31]     ; Merged with data_driver:dd|Timer:T1|cuenta[31] ;
+; data_driver:dd|Timer:T2|cuenta[30]     ; Merged with data_driver:dd|Timer:T1|cuenta[30] ;
+; data_driver:dd|Timer:T2|cuenta[29]     ; Merged with data_driver:dd|Timer:T1|cuenta[29] ;
+; data_driver:dd|Timer:T2|cuenta[28]     ; Merged with data_driver:dd|Timer:T1|cuenta[28] ;
+; data_driver:dd|Timer:T2|cuenta[27]     ; Merged with data_driver:dd|Timer:T1|cuenta[27] ;
+; data_driver:dd|Timer:T2|cuenta[26]     ; Merged with data_driver:dd|Timer:T1|cuenta[26] ;
+; data_driver:dd|Timer:T2|cuenta[25]     ; Merged with data_driver:dd|Timer:T1|cuenta[25] ;
+; data_driver:dd|Timer:T2|cuenta[24]     ; Merged with data_driver:dd|Timer:T1|cuenta[24] ;
+; data_driver:dd|Timer:T2|cuenta[23]     ; Merged with data_driver:dd|Timer:T1|cuenta[23] ;
+; data_driver:dd|Timer:T2|cuenta[22]     ; Merged with data_driver:dd|Timer:T1|cuenta[22] ;
+; data_driver:dd|Timer:T2|cuenta[21]     ; Merged with data_driver:dd|Timer:T1|cuenta[21] ;
+; data_driver:dd|Timer:T2|cuenta[20]     ; Merged with data_driver:dd|Timer:T1|cuenta[20] ;
+; data_driver:dd|Timer:T2|cuenta[19]     ; Merged with data_driver:dd|Timer:T1|cuenta[19] ;
+; data_driver:dd|Timer:T2|cuenta[18]     ; Merged with data_driver:dd|Timer:T1|cuenta[18] ;
+; data_driver:dd|Timer:T2|cuenta[17]     ; Merged with data_driver:dd|Timer:T1|cuenta[17] ;
+; data_driver:dd|Timer:T2|cuenta[16]     ; Merged with data_driver:dd|Timer:T1|cuenta[16] ;
+; data_driver:dd|Timer:T2|cuenta[15]     ; Merged with data_driver:dd|Timer:T1|cuenta[15] ;
+; data_driver:dd|Timer:T2|cuenta[14]     ; Merged with data_driver:dd|Timer:T1|cuenta[14] ;
+; data_driver:dd|Timer:T2|cuenta[13]     ; Merged with data_driver:dd|Timer:T1|cuenta[13] ;
+; data_driver:dd|Timer:T2|cuenta[12]     ; Merged with data_driver:dd|Timer:T1|cuenta[12] ;
+; data_driver:dd|Timer:T2|cuenta[11]     ; Merged with data_driver:dd|Timer:T1|cuenta[11] ;
+; data_driver:dd|Timer:T2|cuenta[10]     ; Merged with data_driver:dd|Timer:T1|cuenta[10] ;
+; data_driver:dd|Timer:T2|cuenta[9]      ; Merged with data_driver:dd|Timer:T1|cuenta[9]  ;
+; data_driver:dd|Timer:T2|cuenta[8]      ; Merged with data_driver:dd|Timer:T1|cuenta[8]  ;
+; data_driver:dd|Timer:T2|cuenta[7]      ; Merged with data_driver:dd|Timer:T1|cuenta[7]  ;
+; data_driver:dd|Timer:T2|cuenta[6]      ; Merged with data_driver:dd|Timer:T1|cuenta[6]  ;
+; data_driver:dd|Timer:T2|cuenta[5]      ; Merged with data_driver:dd|Timer:T1|cuenta[5]  ;
+; data_driver:dd|Timer:T2|cuenta[4]      ; Merged with data_driver:dd|Timer:T1|cuenta[4]  ;
+; data_driver:dd|Timer:T2|cuenta[3]      ; Merged with data_driver:dd|Timer:T1|cuenta[3]  ;
+; data_driver:dd|Timer:T2|cuenta[2]      ; Merged with data_driver:dd|Timer:T1|cuenta[2]  ;
+; data_driver:dd|Timer:T2|cuenta[1]      ; Merged with data_driver:dd|Timer:T1|cuenta[1]  ;
+; data_driver:dd|Timer:T2|cuenta[0]      ; Merged with data_driver:dd|Timer:T1|cuenta[0]  ;
+; Input:RX|tipo[10]                      ; Stuck at GND due to stuck port data_in         ;
+; Input:RX|Divisor:R1|cuenta[22..27]     ; Lost fanout                                    ;
+; Total Number of Removed Registers = 69 ;                                                ;
++----------------------------------------+------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -262,14 +431,231 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 4     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 4     ;
+; Total registers                              ; 154   ;
+; Number of registers using Synchronous Clear  ; 45    ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 67    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |Cafetera|data_driver:dd|Timer:T1|\process_1:cuenta[16] ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |Cafetera|data_driver:dd|Timer:T2|\process_1:cuenta[13] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Cafetera|Input:RX|RX:Receptor|INDICE[3]                ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |Cafetera|Input:RX|RX:Receptor|PRE[4]                   ;
+; 256:1              ; 4 bits    ; 680 LEs       ; 112 LEs              ; 568 LEs                ; Yes        ; |Cafetera|Input:RX|data[2]                              ;
+; 256:1              ; 3 bits    ; 510 LEs       ; 3 LEs                ; 507 LEs                ; Yes        ; |Cafetera|Input:RX|tipo[0]                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Divisor:R1 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; n              ; 24    ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Input:RX|Divisor:R1 ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; n              ; 21    ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memory_ram_controller:mc ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; types_width    ; 2     ; Signed Integer                               ;
+; fav_width      ; 2     ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memory_ram_controller:mc|single_port_ram:RAM ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; data_width     ; 7     ; Signed Integer                                                   ;
+; addr_width     ; 2     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memory_ram_controller:mc|single_port_ram:ROM ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; data_width     ; 7     ; Signed Integer                                                   ;
+; addr_width     ; 2     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd_to_bin:bcd|lpm_mult:Mult0  ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 4        ; Untyped             ;
+; LPM_WIDTHB                                     ; 7        ; Untyped             ;
+; LPM_WIDTHP                                     ; 11       ; Untyped             ;
+; LPM_WIDTHR                                     ; 11       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; YES      ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; NOTHING  ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: data_driver:dd|lpm_mult:Mult0  ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 7        ; Untyped             ;
+; LPM_WIDTHB                                     ; 7        ; Untyped             ;
+; LPM_WIDTHP                                     ; 14       ; Untyped             ;
+; LPM_WIDTHR                                     ; 14       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; YES      ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; NOTHING  ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                        ;
++---------------------------------------+-------------------------------+
+; Name                                  ; Value                         ;
++---------------------------------------+-------------------------------+
+; Number of entity instances            ; 2                             ;
+; Entity Instance                       ; bcd_to_bin:bcd|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 4                             ;
+;     -- LPM_WIDTHB                     ; 7                             ;
+;     -- LPM_WIDTHP                     ; 11                            ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                      ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                            ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                           ;
+;     -- USE_EAB                        ; OFF                           ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                          ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                            ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                            ;
+; Entity Instance                       ; data_driver:dd|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 7                             ;
+;     -- LPM_WIDTHB                     ; 7                             ;
+;     -- LPM_WIDTHP                     ; 14                            ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                      ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                            ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                           ;
+;     -- USE_EAB                        ; OFF                           ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                          ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                            ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                            ;
++---------------------------------------+-------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memory_ram_controller:mc|single_port_ram:ROM"                                       ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memory_ram_controller:mc"                                                                  ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; we_rom      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; data_out_mc ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; is_rom_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Digits:Dig"                                                                              ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; reset     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; exception ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "Input:RX|RX:Receptor" ;
++------------+-------+----------+------------------+
+; Port       ; Type  ; Severity ; Details          ;
++------------+-------+----------+------------------+
+; baud[1..0] ; Input ; Info     ; Stuck at VCC     ;
+; baud[2]    ; Input ; Info     ; Stuck at GND     ;
++------------+-------+----------+------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Input:RX"                                                                                      ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; favorito[31..2] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -277,18 +663,27 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 22                          ;
-; cycloneiii_ff         ; 4                           ;
-;     CLR               ; 4                           ;
-; cycloneiii_lcell_comb ; 46                          ;
-;     normal            ; 46                          ;
-;         0 data inputs ; 1                           ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 29                          ;
-;         4 data inputs ; 14                          ;
+; boundary_port         ; 48                          ;
+; cycloneiii_ff         ; 154                         ;
+;     ENA               ; 54                          ;
+;     ENA SCLR          ; 13                          ;
+;     SCLR              ; 32                          ;
+;     SLD               ; 1                           ;
+;     plain             ; 54                          ;
+; cycloneiii_lcell_comb ; 490                         ;
+;     arith             ; 164                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 115                         ;
+;         3 data inputs ; 48                          ;
+;     normal            ; 326                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 76                          ;
+;         3 data inputs ; 111                         ;
+;         4 data inputs ; 125                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.47                        ;
+; Max LUT depth         ; 5.60                        ;
+; Average LUT depth     ; 3.33                        ;
 +-----------------------+-----------------------------+
 
 
@@ -297,7 +692,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -307,19 +702,33 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Nov 17 21:11:46 2019
+    Info: Processing started: Thu Dec 05 01:24:40 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Cafetera -c Cafetera
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /users/migue/documents/github/vlsi/practica_03/temporizador.vhd
+    Info (12022): Found design unit 1: Timer-Behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Practica_03/temporizador.vhd Line: 23
+    Info (12023): Found entity 1: Timer File: C:/Users/migue/Documents/GitHub/VLSI/Practica_03/temporizador.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file /users/migue/documents/github/vlsi/practica_05/divisor.vhd
+    Info (12022): Found design unit 1: Divisor-Behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Practica_05/divisor.vhd Line: 10
+    Info (12023): Found entity 1: Divisor File: C:/Users/migue/Documents/GitHub/VLSI/Practica_05/divisor.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file rx_lab.vhd
+    Info (12022): Found design unit 1: RX-behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/RX_lab.vhd Line: 12
+    Info (12023): Found entity 1: RX File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/RX_lab.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file teclado.vhd
+    Info (12022): Found design unit 1: Teclado-behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Teclado.vhd Line: 28
+    Info (12023): Found entity 1: Teclado File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Teclado.vhd Line: 15
 Info (12021): Found 2 design units, including 1 entities, in source file digits.vhd
-    Info (12022): Found design unit 1: Digits-rtl File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 35
+    Info (12022): Found design unit 1: Digits-rtl File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 38
     Info (12023): Found entity 1: Digits File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 12
-Info (12021): Found 0 design units, including 0 entities, in source file cafetera.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file cafetera.vhd
+    Info (12022): Found design unit 1: Cafetera-behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 27
+    Info (12023): Found entity 1: Cafetera File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file bcd_to_bin.vhd
     Info (12022): Found design unit 1: bcd_to_bin-Behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 21
     Info (12023): Found entity 1: bcd_to_bin File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file memory_ram_controller.vhd
-    Info (12022): Found design unit 1: memory_ram_controller-Behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/memory_ram_controller.vhd Line: 37
+    Info (12022): Found design unit 1: memory_ram_controller-Behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/memory_ram_controller.vhd Line: 31
     Info (12023): Found entity 1: memory_ram_controller File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/memory_ram_controller.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file single_port_ram.vhd
     Info (12022): Found design unit 1: single_port_ram-rtl File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/single_port_ram.vhd Line: 26
@@ -327,80 +736,283 @@ Info (12021): Found 2 design units, including 1 entities, in source file single_
 Info (12021): Found 2 design units, including 1 entities, in source file bcd_to_bin_test.vhd
     Info (12022): Found design unit 1: bcd_to_bin_test-Behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin_test.vhd Line: 18
     Info (12023): Found entity 1: bcd_to_bin_test File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin_test.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file push_driver.vhd
+    Info (12022): Found design unit 1: data_driver-Behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 23
+    Info (12023): Found entity 1: data_driver File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file prueba1.bdf
+    Info (12023): Found entity 1: Prueba1
+Info (12021): Found 2 design units, including 1 entities, in source file input.vhd
+    Info (12022): Found design unit 1: Input-behavioral File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 20
+    Info (12023): Found entity 1: Input File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 5
 Warning (12162): EDA synthesis tool is specified as "Custom", but Library Mapping File is not specified
 Warning (12163): EDA synthesis tool is specified as "Custom", but VCC is not specified
 Warning (12164): EDA synthesis tool is specified as "Custom", but GND is not specified
-Info (12127): Elaborating entity "Digits" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at Digits.vhd(44): object "is_zero2" assigned a value but never read File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 44
-Warning (10492): VHDL Process Statement warning at Digits.vhd(118): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 118
-Warning (10492): VHDL Process Statement warning at Digits.vhd(121): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 121
-Warning (10492): VHDL Process Statement warning at Digits.vhd(133): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 133
+Info (12127): Elaborating entity "Cafetera" for the top level hierarchy
+Warning (10540): VHDL Signal Declaration warning at Cafetera.vhd(79): used explicit default value for signal "reset" because signal was never assigned a value File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 79
+Warning (10036): Verilog HDL or VHDL warning at Cafetera.vhd(83): object "exeption" assigned a value but never read File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 83
+Warning (10540): VHDL Signal Declaration warning at Cafetera.vhd(141): used explicit default value for signal "we_rom" because signal was never assigned a value File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 141
+Warning (10036): Verilog HDL or VHDL warning at Cafetera.vhd(142): object "data_out_mc" assigned a value but never read File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 142
+Warning (10036): Verilog HDL or VHDL warning at Cafetera.vhd(144): object "is_rom_o" assigned a value but never read File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 144
+Info (12128): Elaborating entity "Divisor" for hierarchy "Divisor:R1" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 167
+Info (12128): Elaborating entity "Input" for hierarchy "Input:RX" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 168
+Warning (10540): VHDL Signal Declaration warning at Input.vhd(39): used explicit default value for signal "baud" because signal was never assigned a value File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 39
+Info (12128): Elaborating entity "RX" for hierarchy "Input:RX|RX:Receptor" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 43
+Info (12128): Elaborating entity "Divisor" for hierarchy "Input:RX|Divisor:R1" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 45
+Info (12128): Elaborating entity "Digits" for hierarchy "Digits:Dig" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 169
+Warning (10036): Verilog HDL or VHDL warning at Digits.vhd(47): object "is_zero2" assigned a value but never read File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 47
+Warning (10492): VHDL Process Statement warning at Digits.vhd(57): signal "dato_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 57
+Warning (10492): VHDL Process Statement warning at Digits.vhd(127): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 127
 Warning (10492): VHDL Process Statement warning at Digits.vhd(136): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 136
+Warning (10492): VHDL Process Statement warning at Digits.vhd(139): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 139
 Warning (10492): VHDL Process Statement warning at Digits.vhd(140): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 140
-Warning (10492): VHDL Process Statement warning at Digits.vhd(158): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 158
-Warning (10492): VHDL Process Statement warning at Digits.vhd(159): signal "is_zero1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 159
-Warning (10492): VHDL Process Statement warning at Digits.vhd(160): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 160
-Warning (10492): VHDL Process Statement warning at Digits.vhd(171): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 171
+Warning (10492): VHDL Process Statement warning at Digits.vhd(153): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 153
+Warning (10492): VHDL Process Statement warning at Digits.vhd(156): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 156
+Warning (10492): VHDL Process Statement warning at Digits.vhd(157): signal "unidades" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 157
+Warning (10492): VHDL Process Statement warning at Digits.vhd(158): signal "unidades" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 158
+Warning (10492): VHDL Process Statement warning at Digits.vhd(162): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 162
+Warning (10492): VHDL Process Statement warning at Digits.vhd(183): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 183
+Warning (10492): VHDL Process Statement warning at Digits.vhd(184): signal "is_zero1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 184
+Warning (10492): VHDL Process Statement warning at Digits.vhd(185): signal "decenas" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 185
+Warning (10492): VHDL Process Statement warning at Digits.vhd(186): signal "unidades" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 186
 Warning (10492): VHDL Process Statement warning at Digits.vhd(187): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 187
-Warning (10631): VHDL Process Statement warning at Digits.vhd(113): inferring latch(es) for signal or variable "is_zero1", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Warning (10631): VHDL Process Statement warning at Digits.vhd(113): inferring latch(es) for signal or variable "Sal0", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Warning (10631): VHDL Process Statement warning at Digits.vhd(113): inferring latch(es) for signal or variable "Sal1", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Warning (10631): VHDL Process Statement warning at Digits.vhd(113): inferring latch(es) for signal or variable "Sal2", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Warning (10631): VHDL Process Statement warning at Digits.vhd(113): inferring latch(es) for signal or variable "exception", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "exception" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "Sal2[0]" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "Sal2[1]" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "Sal2[2]" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "Sal2[3]" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "Sal1[0]" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "Sal1[1]" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "Sal1[2]" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "Sal1[3]" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "Sal0[0]" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "Sal0[1]" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "Sal0[2]" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "Sal0[3]" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-Info (10041): Inferred latch for "is_zero1" at Digits.vhd(113) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
+Warning (10492): VHDL Process Statement warning at Digits.vhd(198): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 198
+Warning (10492): VHDL Process Statement warning at Digits.vhd(217): signal "digits" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 217
+Warning (10631): VHDL Process Statement warning at Digits.vhd(125): inferring latch(es) for signal or variable "is_zero1", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Warning (10631): VHDL Process Statement warning at Digits.vhd(125): inferring latch(es) for signal or variable "Sal0", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Warning (10631): VHDL Process Statement warning at Digits.vhd(125): inferring latch(es) for signal or variable "unidades", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Warning (10631): VHDL Process Statement warning at Digits.vhd(125): inferring latch(es) for signal or variable "Sal1", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Warning (10631): VHDL Process Statement warning at Digits.vhd(125): inferring latch(es) for signal or variable "Sal2", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Warning (10631): VHDL Process Statement warning at Digits.vhd(125): inferring latch(es) for signal or variable "decenas", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Warning (10631): VHDL Process Statement warning at Digits.vhd(125): inferring latch(es) for signal or variable "exception", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "exception" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "decenas[0]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "decenas[1]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "decenas[2]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "decenas[3]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "Sal2[0]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "Sal2[1]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "Sal2[2]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "Sal2[3]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "Sal1[0]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "Sal1[1]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "Sal1[2]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "Sal1[3]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "unidades[0]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "unidades[1]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "unidades[2]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "unidades[3]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "Sal0[0]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "Sal0[1]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "Sal0[2]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "Sal0[3]" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (10041): Inferred latch for "is_zero1" at Digits.vhd(125) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+Info (12128): Elaborating entity "bcd_to_bin" for hierarchy "bcd_to_bin:bcd" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 170
+Warning (10492): VHDL Process Statement warning at bcd_to_bin.vhd(27): signal "Dat0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 27
+Warning (10492): VHDL Process Statement warning at bcd_to_bin.vhd(27): signal "Dat1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 27
+Warning (10492): VHDL Process Statement warning at bcd_to_bin.vhd(27): signal "Dat2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 27
+Warning (10492): VHDL Process Statement warning at bcd_to_bin.vhd(28): signal "bin" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 28
+Warning (10631): VHDL Process Statement warning at bcd_to_bin.vhd(24): inferring latch(es) for signal or variable "bin", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 24
+Info (10041): Inferred latch for "bin[0]" at bcd_to_bin.vhd(24) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 24
+Info (10041): Inferred latch for "bin[1]" at bcd_to_bin.vhd(24) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 24
+Info (10041): Inferred latch for "bin[2]" at bcd_to_bin.vhd(24) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 24
+Info (10041): Inferred latch for "bin[3]" at bcd_to_bin.vhd(24) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 24
+Info (10041): Inferred latch for "bin[4]" at bcd_to_bin.vhd(24) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 24
+Info (10041): Inferred latch for "bin[5]" at bcd_to_bin.vhd(24) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 24
+Info (10041): Inferred latch for "bin[6]" at bcd_to_bin.vhd(24) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/bcd_to_bin.vhd Line: 24
+Info (12128): Elaborating entity "memory_ram_controller" for hierarchy "memory_ram_controller:mc" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 171
+Warning (10541): VHDL Signal Declaration warning at memory_ram_controller.vhd(26): used implicit default value for signal "is_ram_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/memory_ram_controller.vhd Line: 26
+Warning (10541): VHDL Signal Declaration warning at memory_ram_controller.vhd(27): used implicit default value for signal "is_rom_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/memory_ram_controller.vhd Line: 27
+Info (12128): Elaborating entity "single_port_ram" for hierarchy "memory_ram_controller:mc|single_port_ram:RAM" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/memory_ram_controller.vhd Line: 64
+Info (12128): Elaborating entity "data_driver" for hierarchy "data_driver:dd" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 172
+Warning (10541): VHDL Signal Declaration warning at push_driver.vhd(19): used implicit default value for signal "we_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 19
+Warning (10492): VHDL Process Statement warning at push_driver.vhd(62): signal "data_m" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 62
+Warning (10492): VHDL Process Statement warning at push_driver.vhd(63): signal "tipo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 63
+Warning (10492): VHDL Process Statement warning at push_driver.vhd(64): signal "porcentaje" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 64
+Warning (10492): VHDL Process Statement warning at push_driver.vhd(65): signal "porcentaje" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 65
+Warning (10492): VHDL Process Statement warning at push_driver.vhd(69): signal "porcentaje" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 69
+Warning (10492): VHDL Process Statement warning at push_driver.vhd(70): signal "porcentaje" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 70
+Warning (10631): VHDL Process Statement warning at push_driver.vhd(59): inferring latch(es) for signal or variable "porcentaje", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Warning (10631): VHDL Process Statement warning at push_driver.vhd(59): inferring latch(es) for signal or variable "Tms1", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Warning (10631): VHDL Process Statement warning at push_driver.vhd(59): inferring latch(es) for signal or variable "Tms2", which holds its previous value in one or more paths through the process File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[0]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[1]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[2]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[3]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[4]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[5]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[6]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[7]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[8]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[9]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[10]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[11]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[12]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[13]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[14]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[15]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[16]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[17]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[18]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms2[19]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[0]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[1]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[2]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[3]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[4]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[5]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[6]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[7]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[8]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[9]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[10]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[11]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[12]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[13]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[14]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[15]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[16]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[17]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[18]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "Tms1[19]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[0]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[1]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[2]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[3]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[4]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[5]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[6]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[7]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[8]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[9]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[10]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[11]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[12]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[13]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[14]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[15]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[16]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[17]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[18]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[19]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[20]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[21]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[22]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[23]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[24]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[25]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[26]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[27]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[28]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[29]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[30]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (10041): Inferred latch for "porcentaje[31]" at push_driver.vhd(59) File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Info (12128): Elaborating entity "Timer" for hierarchy "data_driver:dd|Timer:T1" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 50
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "bcd_to_bin:bcd|Mult0" File: d:/programas/quartus181/quartus/libraries/vhdl/synopsys/ieee/syn_arit.vhd Line: 687
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "data_driver:dd|Mult0" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 62
+Info (12130): Elaborated megafunction instantiation "bcd_to_bin:bcd|lpm_mult:Mult0" File: d:/programas/quartus181/quartus/libraries/vhdl/synopsys/ieee/syn_arit.vhd Line: 687
+Info (12133): Instantiated megafunction "bcd_to_bin:bcd|lpm_mult:Mult0" with the following parameter: File: d:/programas/quartus181/quartus/libraries/vhdl/synopsys/ieee/syn_arit.vhd Line: 687
+    Info (12134): Parameter "LPM_WIDTHA" = "4"
+    Info (12134): Parameter "LPM_WIDTHB" = "7"
+    Info (12134): Parameter "LPM_WIDTHP" = "11"
+    Info (12134): Parameter "LPM_WIDTHR" = "11"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12131): Elaborated megafunction instantiation "bcd_to_bin:bcd|lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "bcd_to_bin:bcd|lpm_mult:Mult0" File: d:/programas/quartus181/quartus/libraries/megafunctions/lpm_mult.tdf Line: 308
+Info (12131): Elaborated megafunction instantiation "bcd_to_bin:bcd|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "bcd_to_bin:bcd|lpm_mult:Mult0" File: d:/programas/quartus181/quartus/libraries/megafunctions/multcore.tdf Line: 228
+Info (12131): Elaborated megafunction instantiation "bcd_to_bin:bcd|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "bcd_to_bin:bcd|lpm_mult:Mult0" File: d:/programas/quartus181/quartus/libraries/megafunctions/lpm_mult.tdf Line: 351
+Info (12130): Elaborated megafunction instantiation "data_driver:dd|lpm_mult:Mult0" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 62
+Info (12133): Instantiated megafunction "data_driver:dd|lpm_mult:Mult0" with the following parameter: File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 62
+    Info (12134): Parameter "LPM_WIDTHA" = "7"
+    Info (12134): Parameter "LPM_WIDTHB" = "7"
+    Info (12134): Parameter "LPM_WIDTHP" = "14"
+    Info (12134): Parameter "LPM_WIDTHR" = "14"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12131): Elaborated megafunction instantiation "data_driver:dd|lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "data_driver:dd|lpm_mult:Mult0" File: d:/programas/quartus181/quartus/libraries/megafunctions/lpm_mult.tdf Line: 308
+Info (12131): Elaborated megafunction instantiation "data_driver:dd|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "data_driver:dd|lpm_mult:Mult0" File: d:/programas/quartus181/quartus/libraries/megafunctions/multcore.tdf Line: 228
+Info (12131): Elaborated megafunction instantiation "data_driver:dd|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]", which is child of megafunction instantiation "data_driver:dd|lpm_mult:Mult0" File: d:/programas/quartus181/quartus/libraries/megafunctions/mpar_add.tdf Line: 78
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_arg.tdf
+    Info (12023): Found entity 1: add_sub_arg File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/db/add_sub_arg.tdf Line: 22
+Info (12131): Elaborated megafunction instantiation "data_driver:dd|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "data_driver:dd|lpm_mult:Mult0" File: d:/programas/quartus181/quartus/libraries/megafunctions/lpm_mult.tdf Line: 351
 Warning (12162): EDA synthesis tool is specified as "Custom", but Library Mapping File is not specified
 Warning (12163): EDA synthesis tool is specified as "Custom", but VCC is not specified
 Warning (12164): EDA synthesis tool is specified as "Custom", but GND is not specified
-Warning (13012): Latch Sal0[0]$latch has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal state.Idle File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 41
-Warning (13012): Latch Sal0[1]$latch has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal state.Idle File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 41
-Warning (13012): Latch Sal0[2]$latch has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal state.Idle File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 41
-Warning (13012): Latch Sal0[3]$latch has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal state.Idle File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 41
-Warning (13012): Latch Sal1[0]$latch has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal is_digit File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 18
-Warning (13012): Latch Sal1[1]$latch has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal is_digit File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 18
-Warning (13012): Latch Sal1[2]$latch has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal is_digit File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 18
-Warning (13012): Latch Sal1[3]$latch has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal is_digit File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 18
-Warning (13012): Latch Sal2[0]$latch has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal state.D2 File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 41
-Warning (13012): Latch Sal2[1]$latch has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal state.D2 File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 41
-Warning (13012): Latch Sal2[2]$latch has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal state.D2 File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 41
-Warning (13012): Latch Sal2[3]$latch has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 113
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal state.D2 File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 41
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "data_driver:dd|Tms1[15]" merged with LATCH primitive "data_driver:dd|Tms1[19]" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+    Info (13026): Duplicate LATCH primitive "data_driver:dd|Tms1[16]" merged with LATCH primitive "data_driver:dd|Tms1[19]" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+    Info (13026): Duplicate LATCH primitive "data_driver:dd|Tms1[17]" merged with LATCH primitive "data_driver:dd|Tms1[19]" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+    Info (13026): Duplicate LATCH primitive "data_driver:dd|Tms1[18]" merged with LATCH primitive "data_driver:dd|Tms1[19]" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+    Info (13026): Duplicate LATCH primitive "data_driver:dd|Tms2[2]" merged with LATCH primitive "data_driver:dd|Tms1[2]" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+    Info (13026): Duplicate LATCH primitive "data_driver:dd|Tms2[15]" merged with LATCH primitive "data_driver:dd|Tms2[19]" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+    Info (13026): Duplicate LATCH primitive "data_driver:dd|Tms2[16]" merged with LATCH primitive "data_driver:dd|Tms2[19]" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+    Info (13026): Duplicate LATCH primitive "data_driver:dd|Tms2[17]" merged with LATCH primitive "data_driver:dd|Tms2[19]" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+    Info (13026): Duplicate LATCH primitive "data_driver:dd|Tms2[18]" merged with LATCH primitive "data_driver:dd|Tms2[19]" File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/push_driver.vhd Line: 59
+Warning (13012): Latch Digits:Dig|Sal0[0] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|data[0] File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 51
+Warning (13012): Latch Digits:Dig|Sal0[1] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|data[1] File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 51
+Warning (13012): Latch Digits:Dig|Sal0[2] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|data[2] File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 51
+Warning (13012): Latch Digits:Dig|Sal0[3] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|data[3] File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 51
+Warning (13012): Latch Digits:Dig|Sal1[0] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|is_digit File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 13
+Warning (13012): Latch Digits:Dig|Sal1[1] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|is_digit File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 13
+Warning (13012): Latch Digits:Dig|Sal1[2] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|is_digit File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 13
+Warning (13012): Latch Digits:Dig|Sal1[3] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|is_digit File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 13
+Warning (13012): Latch Digits:Dig|Sal2[0] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|is_digit File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 13
+Warning (13012): Latch Digits:Dig|Sal2[1] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|is_digit File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 13
+Warning (13012): Latch Digits:Dig|Sal2[2] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|is_digit File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 13
+Warning (13012): Latch Digits:Dig|Sal2[3] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|is_digit File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 13
+Warning (13012): Latch Digits:Dig|unidades[0] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|data[0] File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 51
+Warning (13012): Latch Digits:Dig|unidades[1] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|data[1] File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 51
+Warning (13012): Latch Digits:Dig|unidades[2] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|data[2] File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 51
+Warning (13012): Latch Digits:Dig|unidades[3] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Input:RX|data[3] File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Input.vhd Line: 51
+Warning (13012): Latch Digits:Dig|decenas[0] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Digits:Dig|state.D2 File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 44
+Warning (13012): Latch Digits:Dig|decenas[1] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Digits:Dig|state.D2 File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 44
+Warning (13012): Latch Digits:Dig|decenas[2] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Digits:Dig|state.D2 File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 44
+Warning (13012): Latch Digits:Dig|decenas[3] has unsafe behavior File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 125
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Digits:Dig|state.D2 File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 44
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "exception" is stuck at VCC File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Digits.vhd Line: 29
+    Warning (13410): Pin "disp_tipo[0]" is stuck at GND File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 14
+    Warning (13410): Pin "disp_tipo[1]" is stuck at GND File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 14
+    Warning (13410): Pin "disp_tipo[2]" is stuck at GND File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 14
+    Warning (13410): Pin "disp_tipo[4]" is stuck at GND File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 14
+    Warning (13410): Pin "disp_tipo[5]" is stuck at GND File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 14
+    Warning (13410): Pin "debug_state[3]" is stuck at GND File: C:/Users/migue/Documents/GitHub/VLSI/Proyecto/Cafetera.vhd Line: 19
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 67 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 8 input pins
-    Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 45 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 49 warnings
-    Info: Peak virtual memory: 4845 megabytes
-    Info: Processing ended: Sun Nov 17 21:11:58 2019
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:25
+Info (21057): Implemented 543 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 45 output pins
+    Info (21061): Implemented 495 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 102 warnings
+    Info: Peak virtual memory: 4863 megabytes
+    Info: Processing ended: Thu Dec 05 01:24:53 2019
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:27
 
 
